@@ -12,7 +12,7 @@ Welcome to FitPro, a modern, conversion-focused WordPress theme designed for fit
 
 ---
 
-## Theme Setup Guide
+## Quick Setup Guide
 
 To make your site look like the demo, follow these steps.
 
@@ -21,40 +21,45 @@ To make your site look like the demo, follow these steps.
 You first need to create the essential pages for your site.
 
 1.  In your WordPress dashboard, go to **Pages > Add New**.
-2.  Create the following four pages:
+2.  Create the following pages:
     *   **Home**: This will be your main landing page.
-    *   **About**: This will be your "About Us" page.
+    *   **About**: Your "About Us" page.
     *   **Services**: This page will detail your offerings.
     *   **Contact**: Your contact page.
+    *   **Blog**: An empty page that will be used to display your posts.
 
-### Step 2: Add Demo Content
-
-This theme comes with high-quality demo content to get you started quickly.
-
-1.  For each page you created (About, Services, Contact), open it in the WordPress editor.
-2.  Open the corresponding HTML file from the `demo-content` folder in a text editor.
-    *   `demo-content/about-page.html`
-    *   `demo-content/services-page.html`
-    *   `demo-content/contact-page.html`
-3.  In the WordPress editor, add a **Custom HTML** block.
-4.  Copy the content from the HTML file and paste it into the Custom HTML block.
-5.  Click **Update** or **Publish** to save the page.
-
-### Step 3: Set Your Static Front Page
+### Step 2: Set Your Static Front Page
 
 You need to tell WordPress to use your "Home" page as the main page of your site.
 
 1.  Go to **Settings > Reading** in your WordPress dashboard.
 2.  Under "Your homepage displays", select **A static page**.
 3.  For the **Homepage** dropdown, select the "**Home**" page you created.
-4.  (Optional) For the **Posts page**, you can create a new page called "Blog" and select it here. This will be where your blog posts are listed.
+4.  For the **Posts page**, select the "**Blog**" page you created.
 5.  Save your changes.
+
+### Step 3: Add Demo Content to Pages
+
+This theme comes with high-quality demo content to get you started quickly. The content is located in the `demo-content` folder of the theme.
+
+**For the Homepage:**
+1. Open your **Home** page in the WordPress editor.
+2. Add a single **Custom HTML** block to the page.
+3. Open the file `demo-content/homepage-content.html` in a text editor.
+4. Copy the entire content of the file and paste it into the Custom HTML block.
+5. Click **Update** or **Publish**.
+
+**For Other Pages (About, Services, Contact):**
+1. Open the page (e.g., About) in the WordPress editor.
+2. Add a **Custom HTML** block.
+3. Open the corresponding file (`demo-content/about-page.html`, etc.) and copy/paste the content.
+4. Click **Update** or **Publish**.
 
 ### Step 4: Configure the Navigation Menu
 
 1.  Go to **Appearance > Menus**.
 2.  Click **create a new menu**. Give it a name (e.g., "Main Menu") and click **Create Menu**.
-3.  On the left, select the pages you want to add to your menu (Home, About, Services, Contact) and click **Add to Menu**.
+3.  On the left, select the pages you want to add to your menu (Home, About, Services, Contact, Blog) and click **Add to Menu**.
 4.  Drag and drop the menu items to arrange them in your desired order.
 5.  Under "Menu Settings" at the bottom, check the box for **Primary Menu** in the "Display location" section.
 6.  Click **Save Menu**.
@@ -72,12 +77,12 @@ You can change the theme's appearance in the WordPress Customizer.
 
 ### Step 6: Making Forms Functional
 
-The theme includes several demo forms (in the footer, on the homepage, and on the contact page). To make these functional, you need to use a forms plugin.
+The theme includes several demo forms. To make these functional, you need to use a forms plugin.
 
 1.  Install and activate a plugin like **WPForms** or **Contact Form 7**.
 2.  Create a new form within the plugin.
 3.  Copy the shortcode provided by the plugin.
-4.  Paste the shortcode into your pages to replace the placeholder HTML form markup. On the Contact Page demo content, there is a placeholder `[your_contact_form_shortcode_here]` for this purpose.
+4.  Paste the shortcode into your pages to replace the placeholder HTML form markup.
 
 ---
 

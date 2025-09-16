@@ -13,20 +13,14 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<?php
-		// Display Hero Section
-		get_template_part( 'template-parts/homepage-hero' );
+		// Start the Loop.
+		while ( have_posts() ) :
+			the_post();
 
-		// Display Services Section
-		get_template_part( 'template-parts/homepage-services' );
+			// Display the page content from the WordPress editor.
+			the_content();
 
-		// Display Testimonials Section
-		get_template_part( 'template-parts/homepage-testimonials' );
-
-		// Display Blog Section
-		get_template_part( 'template-parts/homepage-blog' );
-
-		// Display CTA Section
-		get_template_part( 'template-parts/homepage-cta' );
+		endwhile; // End of the loop.
 		?>
 
 	</main><!-- #main -->

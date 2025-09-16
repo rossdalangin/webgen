@@ -163,35 +163,20 @@ function fitpro_custom_css() {
     $heading_font = get_theme_mod( 'fitpro_heading_font', 'Poppins' );
 
     $css = '';
+    $style_block_needed = false;
 
-    // Accent Color CSS
     if ( $accent_color !== '#00ff7f' ) {
-        $css .= '
-            .cta-button, .button, button, input[type="submit"], .read-more,
-            .main-navigation .current-menu-item > a,
-            .menu-toggle {
-                background-color: ' . esc_attr( $accent_color ) . ';
-            }
-            a, .site-title a:hover, .entry-title a:hover, .testimonial-author {
-                color: ' . esc_attr( $accent_color ) . ';
-            }
-            .testimonial-item {
-                border-left-color: ' . esc_attr( $accent_color ) . ';
-            }
-        ';
+        $css .= '--color-accent: ' . esc_attr( $accent_color ) . ';';
+        $style_block_needed = true;
     }
 
-    // Heading Font CSS
     if ( $heading_font !== 'Poppins' ) {
-        $css .= '
-            h1, h2, h3, h4, h5, h6, .site-title, .font-heading {
-                font-family: "' . esc_attr( $heading_font ) . '", sans-serif;
-            }
-        ';
+        $css .= '--font-heading: "' . esc_attr( $heading_font ) . '", sans-serif;';
+        $style_block_needed = true;
     }
 
-    if ( ! empty( $css ) ) {
-        echo '<style type="text/css">' . wp_strip_all_tags( $css ) . '</style>';
+    if ( $style_block_needed ) {
+        echo '<style type="text/css">:root {' . wp_strip_all_tags( $css ) . '}</style>';
     }
 }
 add_action( 'wp_head', 'fitpro_custom_css' );
