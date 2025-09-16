@@ -112,99 +112,94 @@ function fitpro_customize_register( $wp_customize ) {
         'render_callback' => 'fitpro_customize_partial_footer_copyright_text',
     ) );
 
-
     // =================================================================
-    // About Page Settings
+    // Homepage Sections Panel
     // =================================================================
-    $wp_customize->add_section( 'fitpro_about_page_section' , array(
-        'title'      => __( 'About Page Content', 'fitpro' ),
-        'panel'      => 'fitpro_theme_options',
-        'priority'   => 40,
+    $wp_customize->add_panel( 'fitpro_homepage_panel', array(
+        'title'       => __( 'Homepage Sections', 'fitpro' ),
+        'priority'    => 170,
+        'capability'  => 'edit_theme_options',
     ) );
 
-    // Mission Headline
-    $wp_customize->add_setting( 'fitpro_about_mission_headline', array('default' => 'Our Mission: Your Peak Performance', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_about_mission_headline', array('label' => 'Mission Headline', 'section' => 'fitpro_about_page_section', 'type' => 'text'));
+    // --- Hero Section ---
+    $wp_customize->add_section( 'fitpro_hero_section' , array(
+        'title' => __( 'Hero Section', 'fitpro' ),
+        'panel' => 'fitpro_homepage_panel',
+        'priority' => 10
+    ));
+    $wp_customize->add_setting( 'fitpro_hero_order', array('default' => 10, 'sanitize_callback' => 'absint'));
+    $wp_customize->add_control( 'fitpro_hero_order', array('label' => 'Display Order', 'section' => 'fitpro_hero_section', 'type' => 'number'));
+    $wp_customize->add_setting( 'fitpro_hero_headline', array('default' => 'Transform Your Body, Transform Your Life', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_hero_headline', array('label' => 'Headline', 'section' => 'fitpro_hero_section', 'type' => 'text'));
+    $wp_customize->add_setting( 'fitpro_hero_subheadline', array('default' => 'Stop guessing. Start seeing results. Get a personalized fitness and nutrition plan from our world-class coaches.', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_hero_subheadline', array('label' => 'Sub-headline', 'section' => 'fitpro_hero_section', 'type' => 'textarea'));
+    $wp_customize->add_setting( 'fitpro_hero_button_text', array('default' => 'Get Your Free Consultation', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_hero_button_text', array('label' => 'Button Text', 'section' => 'fitpro_hero_section', 'type' => 'text'));
+    $wp_customize->add_setting( 'fitpro_hero_button_url', array('default' => '#contact', 'sanitize_callback' => 'esc_url_raw'));
+    $wp_customize->add_control( 'fitpro_hero_button_url', array('label' => 'Button URL', 'section' => 'fitpro_hero_section', 'type' => 'url'));
 
-    // Mission Text
-    $wp_customize->add_setting( 'fitpro_about_mission_text', array('default' => 'We believe that fitness is not just about looking good—it\'s about feeling unstoppable...', 'sanitize_callback' => 'wp_kses_post'));
-    $wp_customize->add_control( 'fitpro_about_mission_text', array('label' => 'Mission Text', 'section' => 'fitpro_about_page_section', 'type' => 'textarea'));
+    // --- Services Preview Section ---
+    $wp_customize->add_section( 'fitpro_services_preview_section' , array(
+        'title' => __( 'Services Preview Section', 'fitpro' ),
+        'panel' => 'fitpro_homepage_panel',
+        'priority' => 20
+    ));
+    $wp_customize->add_setting( 'fitpro_services_preview_order', array('default' => 20, 'sanitize_callback' => 'absint'));
+    $wp_customize->add_control( 'fitpro_services_preview_order', array('label' => 'Display Order', 'section' => 'fitpro_services_preview_section', 'type' => 'number'));
+    $wp_customize->add_setting( 'fitpro_services_headline', array('default' => 'Our Core Programs', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_services_headline', array('label' => 'Section Headline', 'section' => 'fitpro_services_preview_section', 'type' => 'text'));
+    $wp_customize->add_setting( 'fitpro_services_subheadline', array('default' => 'Designed to deliver results, no matter your starting point.', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_services_subheadline', array('label' => 'Section Sub-headline', 'section' => 'fitpro_services_preview_section', 'type' => 'text'));
+    // Note: The services shown here are the 3 most recent from the "Services" CPT.
 
-    // Story Headline
-    $wp_customize->add_setting( 'fitpro_about_story_headline', array('default' => 'The FitPro Story', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_about_story_headline', array('label' => 'Story Headline', 'section' => 'fitpro_about_page_section', 'type' => 'text'));
+    // --- Testimonials Section ---
+    $wp_customize->add_section( 'fitpro_testimonials_section' , array(
+        'title' => __( 'Testimonials Section', 'fitpro' ),
+        'panel' => 'fitpro_homepage_panel',
+        'priority' => 30
+    ));
+    $wp_customize->add_setting( 'fitpro_testimonials_order', array('default' => 30, 'sanitize_callback' => 'absint'));
+    $wp_customize->add_control( 'fitpro_testimonials_order', array('label' => 'Display Order', 'section' => 'fitpro_testimonials_section', 'type' => 'number'));
+    $wp_customize->add_setting( 'fitpro_testimonials_headline', array('default' => 'What Our Clients Say', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_testimonials_headline', array('label' => 'Section Headline', 'section' => 'fitpro_testimonials_section', 'type' => 'text'));
+    $wp_customize->add_setting( 'fitpro_testimonials_subheadline', array('default' => 'Real people, real results.', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_testimonials_subheadline', array('label' => 'Section Sub-headline', 'section' => 'fitpro_testimonials_section', 'type' => 'text'));
+    // Testimonial 1
+    $wp_customize->add_setting( 'fitpro_testimonial1_text', array('default' => '"I\'ve tried countless programs, but nothing stuck. The personalized approach here was a game-changer. I\'m down 30 pounds and have more energy than ever. I didn\'t just get a plan; I got a new lifestyle."', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_testimonial1_text', array('label' => 'Testimonial 1 Text', 'section' => 'fitpro_testimonials_section', 'type' => 'textarea'));
+    $wp_customize->add_setting( 'fitpro_testimonial1_author', array('default' => '- Sarah L.', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_testimonial1_author', array('label' => 'Testimonial 1 Author', 'section' => 'fitpro_testimonials_section', 'type' => 'text'));
+    // Testimonial 2
+    $wp_customize->add_setting( 'fitpro_testimonial2_text', array('default' => '"As someone who was new to the gym, I was intimidated. My coach was incredibly supportive and taught me proper form and technique. After just 3 months, I feel stronger, healthier, and more confident in my own skin."', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_testimonial2_text', array('label' => 'Testimonial 2 Text', 'section' => 'fitpro_testimonials_section', 'type' => 'textarea'));
+    $wp_customize->add_setting( 'fitpro_testimonial2_author', array('default' => '- Mark T.', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_testimonial2_author', array('label' => 'Testimonial 2 Author', 'section' => 'fitpro_testimonials_section', 'type' => 'text'));
 
-    // Story Text
-    $wp_customize->add_setting( 'fitpro_about_story_text', array('default' => 'Founded by certified coach Alex Jordan...', 'sanitize_callback' => 'wp_kses_post'));
-    $wp_customize->add_control( 'fitpro_about_story_text', array('label' => 'Story Text', 'section' => 'fitpro_about_page_section', 'type' => 'textarea'));
+    // --- Blog Section ---
+    $wp_customize->add_section( 'fitpro_blog_section' , array(
+        'title' => __( 'Blog Section', 'fitpro' ),
+        'panel' => 'fitpro_homepage_panel',
+        'priority' => 40
+    ));
+    $wp_customize->add_setting( 'fitpro_blog_order', array('default' => 40, 'sanitize_callback' => 'absint'));
+    $wp_customize->add_control( 'fitpro_blog_order', array('label' => 'Display Order', 'section' => 'fitpro_blog_section', 'type' => 'number'));
+    $wp_customize->add_setting( 'fitpro_blog_headline', array('default' => 'Latest From The Blog', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_blog_headline', array('label' => 'Section Headline', 'section' => 'fitpro_blog_section', 'type' => 'text'));
+    $wp_customize->add_setting( 'fitpro_blog_subheadline', array('default' => 'Actionable tips to help you on your fitness journey.', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_blog_subheadline', array('label' => 'Section Sub-headline', 'section' => 'fitpro_blog_section', 'type' => 'text'));
 
-    // Team Headline
-    $wp_customize->add_setting( 'fitpro_about_team_headline', array('default' => 'Meet the Team', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_about_team_headline', array('label' => 'Team Headline', 'section' => 'fitpro_about_page_section', 'type' => 'text'));
-
-    // Team Member 1 Name
-    $wp_customize->add_setting( 'fitpro_about_team1_name', array('default' => 'Alex Jordan - Founder & Head Coach', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_about_team1_name', array('label' => 'Team Member 1 Name', 'section' => 'fitpro_about_page_section', 'type' => 'text'));
-    // Team Member 1 Bio
-    $wp_customize->add_setting( 'fitpro_about_team1_bio', array('default' => 'With over 10 years of experience...', 'sanitize_callback' => 'wp_kses_post'));
-    $wp_customize->add_control( 'fitpro_about_team1_bio', array('label' => 'Team Member 1 Bio', 'section' => 'fitpro_about_page_section', 'type' => 'textarea'));
-
-    // Team Member 2 Name
-    $wp_customize->add_setting( 'fitpro_about_team2_name', array('default' => 'Jenna Davis - Nutrition Specialist', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_about_team2_name', array('label' => 'Team Member 2 Name', 'section' => 'fitpro_about_page_section', 'type' => 'text'));
-    // Team Member 2 Bio
-    $wp_customize->add_setting( 'fitpro_about_team2_bio', array('default' => 'Jenna is a registered dietitian...', 'sanitize_callback' => 'wp_kses_post'));
-    $wp_customize->add_control( 'fitpro_about_team2_bio', array('label' => 'Team Member 2 Bio', 'section' => 'fitpro_about_page_section', 'type' => 'textarea'));
-
-
-    // =================================================================
-    // Services Page Settings
-    // =================================================================
-    $wp_customize->add_section( 'fitpro_services_page_section' , array(
-        'title'      => __( 'Services Page Content', 'fitpro' ),
-        'panel'      => 'fitpro_theme_options',
-        'priority'   => 50,
-    ) );
-
-    // Service 1 Title
-    $wp_customize->add_setting( 'fitpro_service1_title', array('default' => '1-on-1 Personal Training', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_service1_title', array('label' => 'Service 1 Title', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
-    // Service 1 Description
-    $wp_customize->add_setting( 'fitpro_service1_desc', array('default' => 'Our flagship program is designed for maximum results...', 'sanitize_callback' => 'wp_kses_post'));
-    $wp_customize->add_control( 'fitpro_service1_desc', array('label' => 'Service 1 Description', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
-    // Service 1 Features
-    $wp_customize->add_setting( 'fitpro_service1_features', array('default' => "Fully customized weekly workout schedule\nIn-person or live video sessions\nContinuous progress tracking and adjustments", 'sanitize_callback' => 'wp_kses_post'));
-    $wp_customize->add_control( 'fitpro_service1_features', array('label' => 'Service 1 Features (1 per line)', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
-    // Service 1 Price
-    $wp_customize->add_setting( 'fitpro_service1_price', array('default' => 'Starting at $300/month', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_service1_price', array('label' => 'Service 1 Price', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
-
-    // Service 2 Title
-    $wp_customize->add_setting( 'fitpro_service2_title', array('default' => 'Custom Nutrition Planning', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_service2_title', array('label' => 'Service 2 Title', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
-    // Service 2 Description
-    $wp_customize->add_setting( 'fitpro_service2_desc', array('default' => 'Proper nutrition is the cornerstone...', 'sanitize_callback' => 'wp_kses_post'));
-    $wp_customize->add_control( 'fitpro_service2_desc', array('label' => 'Service 2 Description', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
-    // Service 2 Features
-    $wp_customize->add_setting( 'fitpro_service2_features', array('default' => "Comprehensive metabolic and lifestyle assessment\nCustomized meal plans and recipes\nWeekly check-ins and plan adjustments", 'sanitize_callback' => 'wp_kses_post'));
-    $wp_customize->add_control( 'fitpro_service2_features', array('label' => 'Service 2 Features (1 per line)', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
-    // Service 2 Price
-    $wp_customize->add_setting( 'fitpro_service2_price', array('default' => 'Starting at $150/month', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_service2_price', array('label' => 'Service 2 Price', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
-
-    // Service 3 Title
-    $wp_customize->add_setting( 'fitpro_service3_title', array('default' => 'Online Fitness Coaching', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_service3_title', array('label' => 'Service 3 Title', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
-    // Service 3 Description
-    $wp_customize->add_setting( 'fitpro_service3_desc', array('default' => 'Get the expertise of a world-class coach...', 'sanitize_callback' => 'wp_kses_post'));
-    $wp_customize->add_control( 'fitpro_service3_desc', array('label' => 'Service 3 Description', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
-    // Service 3 Features
-    $wp_customize->add_setting( 'fitpro_service3_features', array('default' => "Personalized training program delivered via our app\nVideo demonstrations for all exercises\nWeekly email check-ins and feedback", 'sanitize_callback' => 'wp_kses_post'));
-    $wp_customize->add_control( 'fitpro_service3_features', array('label' => 'Service 3 Features (1 per line)', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
-    // Service 3 Price
-    $wp_customize->add_setting( 'fitpro_service3_price', array('default' => 'Starting at $100/month', 'sanitize_callback' => 'sanitize_text_field'));
-    $wp_customize->add_control( 'fitpro_service3_price', array('label' => 'Service 3 Price', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
-
+    // --- CTA Section ---
+    $wp_customize->add_section( 'fitpro_cta_section' , array(
+        'title' => __( 'CTA Section', 'fitpro' ),
+        'panel' => 'fitpro_homepage_panel',
+        'priority' => 50
+    ));
+    $wp_customize->add_setting( 'fitpro_cta_order', array('default' => 50, 'sanitize_callback' => 'absint'));
+    $wp_customize->add_control( 'fitpro_cta_order', array('label' => 'Display Order', 'section' => 'fitpro_cta_section', 'type' => 'number'));
+    $wp_customize->add_setting( 'fitpro_cta_headline', array('default' => 'Ready to Start Your Transformation?', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_cta_headline', array('label' => 'Headline', 'section' => 'fitpro_cta_section', 'type' => 'text'));
+    $wp_customize->add_setting( 'fitpro_cta_subheadline', array('default' => 'Your first step is a conversation with us. Fill out the form below for a free, no-obligation consultation to see if we\'re the right fit for you.', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_cta_subheadline', array('label' => 'Sub-headline', 'section' => 'fitpro_cta_section', 'type' => 'textarea'));
 }
 add_action( 'customize_register', 'fitpro_customize_register' );
 

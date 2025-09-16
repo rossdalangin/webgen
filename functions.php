@@ -132,6 +132,11 @@ add_action( 'wp_enqueue_scripts', 'fitpro_scripts' );
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Custom Post Type definitions.
+ */
+require get_template_directory() . '/inc/post-types.php';
+
+/**
  * Adds SEO features like meta descriptions and schema markup.
  */
 function fitpro_seo_features() {

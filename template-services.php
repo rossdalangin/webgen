@@ -2,10 +2,6 @@
 /**
  * Template Name: Services Page
  *
- * This is the template that displays the "Services" page.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
  * @package FitPro
  */
 
@@ -20,68 +16,48 @@ get_header();
                 </header><!-- .entry-header -->
 
                 <div class="entry-content">
-                    <div class="services-page-grid">
-
-                        <!-- Service 1 -->
-                        <div class="service-offering">
-                            <h3><?php echo esc_html( get_theme_mod( 'fitpro_service1_title', '1-on-1 Personal Training' ) ); ?></h3>
-                            <p><?php echo wp_kses_post( get_theme_mod( 'fitpro_service1_desc', 'Our flagship program is designed for maximum results...' ) ); ?></p>
-                            <?php
-                                $features1 = get_theme_mod( 'fitpro_service1_features', "Fully customized weekly workout schedule\nIn-person or live video sessions\nContinuous progress tracking and adjustments" );
-                                if ( ! empty( $features1 ) ) {
-                                    $features_array = explode( "\n", $features1 );
-                                    echo '<ul>';
-                                    foreach ( $features_array as $feature ) {
-                                        echo '<li>' . esc_html( trim( $feature ) ) . '</li>';
-                                    }
-                                    echo '</ul>';
-                                }
-                            ?>
-                            <p><strong><?php esc_html_e( 'Pricing:', 'fitpro' ); ?></strong> <?php echo esc_html( get_theme_mod( 'fitpro_service1_price', 'Starting at $300/month' ) ); ?></p>
-                            <a href="#contact" class="cta-button"><?php esc_html_e( 'Book a Free Consultation', 'fitpro' ); ?></a>
-                        </div>
-
-                        <!-- Service 2 -->
-                        <div class="service-offering">
-                            <h3><?php echo esc_html( get_theme_mod( 'fitpro_service2_title', 'Custom Nutrition Planning' ) ); ?></h3>
-                            <p><?php echo wp_kses_post( get_theme_mod( 'fitpro_service2_desc', 'Proper nutrition is the cornerstone...' ) ); ?></p>
-                            <?php
-                                $features2 = get_theme_mod( 'fitpro_service2_features', "Comprehensive metabolic and lifestyle assessment\nCustomized meal plans and recipes\nWeekly check-ins and plan adjustments" );
-                                if ( ! empty( $features2 ) ) {
-                                    $features_array = explode( "\n", $features2 );
-                                    echo '<ul>';
-                                    foreach ( $features_array as $feature ) {
-                                        echo '<li>' . esc_html( trim( $feature ) ) . '</li>';
-                                    }
-                                    echo '</ul>';
-                                }
-                            ?>
-                            <p><strong><?php esc_html_e( 'Pricing:', 'fitpro' ); ?></strong> <?php echo esc_html( get_theme_mod( 'fitpro_service2_price', 'Starting at $150/month' ) ); ?></p>
-                            <a href="#contact" class="cta-button"><?php esc_html_e( 'Discuss Your Nutrition Goals', 'fitpro' ); ?></a>
-                        </div>
-
-                        <!-- Service 3 -->
-                        <div class="service-offering">
-                            <h3><?php echo esc_html( get_theme_mod( 'fitpro_service3_title', 'Online Fitness Coaching' ) ); ?></h3>
-                            <p><?php echo wp_kses_post( get_theme_mod( 'fitpro_service3_desc', 'Get the expertise of a world-class coach...' ) ); ?></p>
-                            <?php
-                                $features3 = get_theme_mod( 'fitpro_service3_features', "Personalized training program delivered via our app\nVideo demonstrations for all exercises\nWeekly email check-ins and feedback" );
-                                if ( ! empty( $features3 ) ) {
-                                    $features_array = explode( "\n", $features3 );
-                                    echo '<ul>';
-                                    foreach ( $features_array as $feature ) {
-                                        echo '<li>' . esc_html( trim( $feature ) ) . '</li>';
-                                    }
-                                    echo '</ul>';
-                                }
-                            ?>
-                            <p><strong><?php esc_html_e( 'Pricing:', 'fitpro' ); ?></strong> <?php echo esc_html( get_theme_mod( 'fitpro_service3_price', 'Starting at $100/month' ) ); ?></p>
-                            <a href="#contact" class="cta-button"><?php esc_html_e( 'Start Your Online Training', 'fitpro' ); ?></a>
-                        </div>
-
-                    </div><!-- .services-page-grid -->
+                    <?php
+                    // Display the main content for the Services page, editable in the WordPress editor.
+                    if ( have_posts() ) :
+                        while ( have_posts() ) :
+                            the_post();
+                            the_content();
+                        endwhile;
+                    endif;
+                    ?>
                 </div><!-- .entry-content -->
             </article><!-- #post-<?php the_ID(); ?> -->
+
+            <div class="services-page-section">
+                <div class="services-page-grid">
+                    <?php
+                    $service_query = new WP_Query( array(
+                        'post_type' => 'fitpro_service',
+                        'posts_per_page' => -1,
+                        'orderby' => 'menu_order',
+                        'order' => 'ASC',
+                    ) );
+
+                    if ( $service_query->have_posts() ) :
+                        while ( $service_query->have_posts() ) : $service_query->the_post();
+                            ?>
+                            <div class="service-offering">
+                                <h3 class="service-title"><?php the_title(); ?></h3>
+                                <div class="service-content"><?php the_content(); ?></div>
+                                <a href="#contact" class="cta-button"><?php esc_html_e( 'Learn More', 'fitpro' ); ?></a>
+                            </div>
+                            <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    else :
+                        ?>
+                        <p><?php esc_html_e( 'Our services will be listed here soon.', 'fitpro' ); ?></p>
+                        <?php
+                    endif;
+                    ?>
+                </div><!-- .services-page-grid -->
+            </div><!-- .services-page-section -->
+
         </div><!-- .container -->
 	</main><!-- #main -->
 
