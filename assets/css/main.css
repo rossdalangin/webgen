@@ -325,6 +325,20 @@ section {
     color: var(--color-accent);
 }
 
+/* Services Page Template */
+.service-offering {
+    background-color: var(--color-surface);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    margin-bottom: 30px; /* For mobile view */
+}
+
+.service-offering ul {
+    text-align: left;
+    margin: 1.5em 0;
+}
+
 /* CTA Section */
 .cta-section {
     background-color: var(--color-surface);
@@ -470,5 +484,10 @@ input[type="text"], input[type="email"] {
     }
     .services-grid, .blog-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+    .services-page-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
     }
 }
