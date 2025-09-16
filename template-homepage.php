@@ -35,7 +35,7 @@ get_header();
             ),
         );
 
-        // 2. Sort the sections array based on the 'order' key (PHP 5.6+ compatible)
+        // 2. Sort the sections array based on the 'order' key
         uasort($sections, function($a, $b) {
             if ($a['order'] == $b['order']) {
                 return 0;
@@ -52,13 +52,22 @@ get_header();
 
             switch ($slug) {
                 case 'hero':
+                    $hero_bg_image_url = get_theme_mod('fitpro_hero_background_image', 'https://picsum.photos/1200/800?image=974');
+                    $hero_style = 'background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(' . esc_url($hero_bg_image_url) . ');';
+                    $button2_text = get_theme_mod('fitpro_hero_button2_text', 'Learn More');
+                    $button2_url = get_theme_mod('fitpro_hero_button2_url', '');
                     ?>
-                    <section class="hero-section">
+                    <section class="hero-section" style="<?php echo esc_attr($hero_style); ?>">
                         <div class="container">
                             <div class="hero-content">
                                 <h1 class="hero-headline"><?php echo esc_html( get_theme_mod('fitpro_hero_headline', 'Transform Your Body, Transform Your Life') ); ?></h1>
                                 <p class="hero-subheadline"><?php echo wp_kses_post( get_theme_mod('fitpro_hero_subheadline', 'Stop guessing. Start seeing results...') ); ?></p>
-                                <a href="<?php echo esc_url( get_theme_mod('fitpro_hero_button_url', '#contact') ); ?>" class="cta-button"><?php echo esc_html( get_theme_mod('fitpro_hero_button_text', 'Get Your Free Consultation') ); ?></a>
+                                <div class="hero-buttons">
+                                    <a href="<?php echo esc_url( get_theme_mod('fitpro_hero_button_url', '#contact') ); ?>" class="cta-button"><?php echo esc_html( get_theme_mod('fitpro_hero_button_text', 'Get Your Free Consultation') ); ?></a>
+                                    <?php if ( ! empty($button2_url) ) : ?>
+                                        <a href="<?php echo esc_url($button2_url); ?>" class="cta-button cta-button-alternate"><?php echo esc_html($button2_text); ?></a>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -66,6 +75,7 @@ get_header();
                     break;
 
                 case 'services':
+                    // ... (rest of the cases remain the same)
                     ?>
                     <section class="services-section fade-in-section">
                         <div class="container">

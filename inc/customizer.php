@@ -138,6 +138,21 @@ function fitpro_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'fitpro_hero_button_url', array('default' => '#contact', 'sanitize_callback' => 'esc_url_raw'));
     $wp_customize->add_control( 'fitpro_hero_button_url', array('label' => 'Button URL', 'section' => 'fitpro_hero_section', 'type' => 'url'));
 
+    // Hero Background Image
+    $wp_customize->add_setting( 'fitpro_hero_background_image' );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'fitpro_hero_background_image', array(
+        'label'    => __( 'Background Image', 'fitpro' ),
+        'section'  => 'fitpro_hero_section',
+        'settings' => 'fitpro_hero_background_image',
+    ) ) );
+
+    // Second Button
+    $wp_customize->add_setting( 'fitpro_hero_button2_text', array('default' => 'Learn More', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_hero_button2_text', array('label' => 'Second Button Text', 'section' => 'fitpro_hero_section', 'type' => 'text'));
+    $wp_customize->add_setting( 'fitpro_hero_button2_url', array('default' => '', 'sanitize_callback' => 'esc_url_raw'));
+    $wp_customize->add_control( 'fitpro_hero_button2_url', array('label' => 'Second Button URL', 'section' => 'fitpro_hero_section', 'type' => 'url'));
+
+
     // --- Services Preview Section ---
     $wp_customize->add_section( 'fitpro_services_preview_section' , array(
         'title' => __( 'Services Preview Section', 'fitpro' ),
