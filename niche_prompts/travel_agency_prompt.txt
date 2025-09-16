@@ -1,0 +1,72 @@
+### Master Prompt for Travel Agency WordPress Theme Generation
+
+**1. Persona & Core Objective**
+
+You are Jules, an expert WordPress developer specializing in creating vibrant, inspiring, and feature-rich themes for the travel and tourism industry. Your code is clean, secure, and follows all WordPress best practices.
+
+Your task is to create a complete, production-ready WordPress theme for a travel agency. The theme must be designed to inspire wanderlust, showcase beautiful destinations, and make it easy for users to find and book tours.
+
+**2. User Inputs**
+
+*   **Theme Name**: `TravelPro`
+*   **Niche / Industry**: `Travel Agency`
+*   **Primary Dynamic Content Type (Singular)**: `Tour`
+*   **Primary Dynamic Content Type (Plural)**: `Tours`
+*   **Secondary Dynamic Content Type (Singular)**: `Destination`
+*   **Secondary Dynamic Content Type (Plural)**: `Destinations`
+*   **Primary Accent Color**: `#1abc9c` (A vibrant, fresh teal)
+*   **Base Theme Style**: `Light`
+
+**3. Core Theme Architecture Requirements**
+
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and highly visual with a focus on images and video.
+*   **Content Management Strategy**:
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) managed via the WordPress Customizer.
+    *   "Tours" and "Destinations" will be managed via **Custom Post Types (CPTs)**.
+    *   The "Tour" CPT will have custom fields for key data and be categorized by custom taxonomies.
+    *   The footer will be managed via **Widget Areas**.
+
+**4. Detailed Feature Implementation**
+
+**A. Custom Post Types (CPTs) & Taxonomies**
+*   Create a file `inc/post-types.php`.
+*   Register a CPT for `Tours`. It must support title, editor (Tour Description), and featured image.
+*   **Add Custom Fields (Meta Boxes) to the Tour CPT** for:
+    *   Price
+    *   Duration (e.g., "10 Days")
+    *   Detailed Itinerary (a textarea or repeater field)
+*   Register a CPT for `Destinations`. It must support title and editor.
+*   Register two custom taxonomies for the `Tour` post type:
+    *   `Location`: To associate tours with one or more `Destination` CPTs.
+    *   `Travel Style`: For categories like "Adventure", "Luxury", "Family", "Solo".
+
+**B. Page Templates**
+*   Create a **Homepage Template** (`template-homepage.php`).
+*   Create a **Tours Page Template** (`template-tours.php`). This template must display all `Tour` posts in a grid and **must include filter controls** for `Location` and `Travel Style`.
+*   Create a **Destinations Page Template** (`template-destinations.php`).
+*   Create a custom **Single Tour Template** (`single-tour.php`). This is a key template that must display:
+    *   A hero section with a gallery of images for the tour.
+    *   Key details (Duration, Price, Travel Style) in a prominent info box.
+    *   The detailed day-by-day itinerary.
+    *   A "Book This Tour" contact form or button.
+
+**C. WordPress Customizer Integration (`inc/customizer.php`)**
+*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a background video, a headline (e.g., "Your Next Adventure Awaits"), and a tour search/filter UI (form UI only).
+*   **Popular Destinations Controls**: Add a headline. The section should dynamically display 4-6 featured `Destination` posts with their featured images.
+*   **Featured Tours Controls**: Add a headline. The section must dynamically display 3-4 featured `Tour` posts.
+*   **Travel Style Blocks**: Add a section with controls for 3-4 icon+text blocks to highlight different travel styles (e.g., an icon for "Adventure", etc.).
+*   **Testimonials & CTA Section Controls**: Add controls for these standard sections.
+*   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
+
+**D. Design, Layout, and UX**
+*   **Overall Design**: Implement a vibrant, clean, and inspiring design. Use large, high-impact images and video throughout.
+*   **Header**: Must include a logo, primary navigation, and social media links.
+*   **Tour Filtering**: The filtering on the main tours page must be fast and intuitive.
+*   **Image Galleries**: Use a lightbox effect for all photo galleries.
+
+**5. Final Deliverables**
+
+*   A complete set of theme files organized logically.
+*   A comprehensive `README.md` file explaining all setup steps.
+*   Provide instructions on how to package the files into an installation-ready `.zip` file.

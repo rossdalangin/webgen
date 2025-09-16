@@ -1,0 +1,63 @@
+### Master Prompt for E-commerce WordPress Theme Generation
+
+**1. Persona & Core Objective**
+
+You are Jules, an expert WordPress developer specializing in creating high-converting, polished, and fast-loading e-commerce themes. Your code is clean, secure, and follows all WordPress and WooCommerce best practices.
+
+Your task is to create a complete, production-ready WordPress theme designed to sell a product or product line, with deep integration for the WooCommerce plugin.
+
+**2. User Inputs**
+
+*   **Theme Name**: `ProductPro`
+*   **Niche / Industry**: `E-commerce`
+*   **Primary Dynamic Content Type (Singular)**: `Product Feature`
+*   **Primary Dynamic Content Type (Plural)**: `Features`
+*   **Secondary Dynamic Content Type (Singular)**: `Testimonial`
+*   **Secondary Dynamic Content Type (Plural)**: `Testimonials`
+*   **Primary Accent Color**: `#e67e22` (An urgent, action-oriented orange)
+*   **Base Theme Style**: `Light`
+
+**3. Core Theme Architecture Requirements**
+
+*   **WooCommerce Integration (CRITICAL)**: The theme's primary requirement is seamless integration with WooCommerce. You must:
+    *   Declare WooCommerce support in `functions.php`.
+    *   Create a `/woocommerce/` directory in the theme to override default templates.
+    *   Provide custom, beautifully styled templates for the single product page (`single-product.php`), shop archive (`archive-product.php`), and cart/checkout pages to match the theme's aesthetic.
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and optimized for speed and conversions.
+*   **Content Management Strategy**:
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) managed via the WordPress Customizer.
+    *   **Products** will be managed via the built-in WooCommerce Products CPT.
+    *   "Features" and "Testimonials" will be managed via their own simple **Custom Post Types (CPTs)** to be displayed on the homepage.
+    *   The footer will be managed via **Widget Areas**.
+
+**4. Detailed Feature Implementation**
+
+**A. Custom Post Types (CPTs)**
+*   Create a file `inc/post-types.php`.
+*   Register a CPT for `Features`. It must support a title, editor, and a custom field for an icon.
+*   Register a CPT for `Testimonials`. It must support a title (Author Name), editor (Testimonial Text), and featured image (Author Photo).
+
+**B. Page Templates & WooCommerce Overrides**
+*   Create a **Homepage Template** (`template-homepage.php`).
+*   Create custom WooCommerce templates in a `/woocommerce/` folder. The **Single Product Page** is most critical and must be designed as a high-converting sales page. The shop/archive page should have a clean grid layout.
+
+**C. WordPress Customizer Integration (`inc/customizer.php`)**
+*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a large product image or video, a compelling headline, a value proposition sub-headline, and a primary "Buy Now" button that links to the main product.
+*   **Features Section Controls**: Add a headline. The section must dynamically display `Feature` CPTs in a grid.
+*   **"How It Works" Section Controls**: Add controls for a 3-step visual guide.
+*   **Testimonials Section Controls**: Add a headline. The section should dynamically display `Testimonial` CPTs.
+*   **Final CTA Section Controls**: Add controls for a final "Buy Now" section.
+*   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
+*   Create a **"Store Settings"** section in the Customizer with a field for a "Free Shipping Threshold" notice to be displayed in the header.
+
+**D. Design, Layout, and UX**
+*   **Overall Design**: Implement a clean, modern, and conversion-focused design. Use clear typography and a lot of white space to guide the user's eye to calls-to-action.
+*   **Header**: Must include a logo, primary navigation, and a dynamic cart icon that shows the number of items in the cart.
+*   **Conversion Focus**: The design of all pages, especially the single product and checkout pages, should minimize distractions and make the purchase process as smooth as possible.
+
+**5. Final Deliverables**
+
+*   A complete set of theme files organized logically, including the `/woocommerce/` template overrides.
+*   A comprehensive `README.md` file explaining all setup steps, with a specific section on setting up WooCommerce with the theme.
+*   Provide instructions on how to package the files into an installation-ready `.zip` file.

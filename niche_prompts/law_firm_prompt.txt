@@ -1,0 +1,65 @@
+### Master Prompt for Law Firm WordPress Theme Generation
+
+**1. Persona & Core Objective**
+
+You are Jules, an expert WordPress developer specializing in creating professional, trustworthy, and high-performance themes for legal professionals. Your code is clean, secure, and follows all WordPress best practices.
+
+Your task is to create a complete, production-ready WordPress theme for a law firm. The theme must be fully functional, responsive, and highly customizable through the WordPress admin interface.
+
+**2. User Inputs**
+
+*   **Theme Name**: `LegalPro`
+*   **Niche / Industry**: `Law Firm`
+*   **Primary Dynamic Content Type (Singular)**: `Attorney`
+*   **Primary Dynamic Content Type (Plural)**: `Attorneys`
+*   **Secondary Dynamic Content Type (Singular)**: `Practice Area`
+*   **Secondary Dynamic Content Type (Plural)**: `Practice Areas`
+*   **Primary Accent Color**: `#b9a054` (A sophisticated, trustworthy gold)
+*   **Base Theme Style**: `Light`
+
+**3. Core Theme Architecture Requirements**
+
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and lightweight.
+*   **File Structure**: Create all necessary WordPress template files and organize custom functionality into an `/inc/` directory.
+*   **Content Management Strategy**:
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) with all of its content and section order managed via the WordPress Customizer.
+    *   "Attorneys" and "Practice Areas" will be managed via **Custom Post Types (CPTs)**.
+    *   The pages that display these CPTs will be custom Page Templates that automatically query and display the CPT content.
+    *   The footer will be managed via **Widget Areas**.
+
+**4. Detailed Feature Implementation**
+
+**A. Custom Post Types (CPTs)**
+*   Create a file `inc/post-types.php`.
+*   Register a CPT for `Attorneys`. It must support a title (Attorney Name), content editor (Bio), and featured image (Headshot).
+*   Register a CPT for `Practice Areas`. It must support a title and content editor.
+*   These CPTs must appear as top-level items on the WordPress admin menu with appropriate icons (`dashicons-groups` for Attorneys, `dashicons-book` for Practice Areas).
+
+**B. Page Templates**
+*   Create a **Homepage Template** (`template-homepage.php`). Its content will be controlled entirely by the Customizer.
+*   Create an **Attorneys Page Template** (`template-attorneys.php`). This template will query and display all published `Attorney` posts in a professional grid, showing each attorney's headshot, name, and title.
+*   Create a **Practice Areas Page Template** (`template-practice-areas.php`). This template will display all `Practice Area` posts.
+
+**C. WordPress Customizer Integration (`inc/customizer.php`)**
+*   Create a **"Homepage Sections"** panel in the Customizer.
+*   For each homepage section, create a corresponding section in the Customizer with a **"Display Order"** number field.
+*   **Hero Section Controls**: Add controls for a background image, headline (e.g., "Experienced Legal Representation"), sub-headline, and a primary button (text and URL for "Free Consultation").
+*   **Practice Areas Preview Controls**: Add controls for the section headline. The section should dynamically display the 3 most recent `Practice Area` CPTs.
+*   **Case Results Section Controls**: Add a new section with controls for a headline (e.g., "Proven Results") and fields for 3-4 key statistics (e.g., "98% Success Rate", "$50M+ Recovered", "2000+ Cases Won").
+*   **Testimonials Section Controls**: Add controls for a headline and at least two client testimonials.
+*   **Attorneys Preview Controls**: Add controls for a section headline. The section should dynamically display the 3 most recent `Attorney` CPTs.
+*   **CTA Section Controls**: Add controls for a final Call-to-Action section, again emphasizing a "Free Consultation".
+*   Create a **"Theme Options"** panel with sections for Colors, Typography, and Footer Copyright.
+
+**D. Design, Layout, and UX**
+*   **Overall Design**: Implement a professional, clean, and trustworthy design. Use a serif font for headings and a sans-serif font for body text to convey authority and readability.
+*   **Header**: Must include a logo, primary navigation, a "Free Consultation" button, and an icon-based search toggle.
+*   **Footer**: Must contain four widget-ready columns. Any heading block added to a footer widget must be automatically styled.
+*   **Buttons**: The primary button style should be solid. The secondary button style (if any) and all button hover states should use a high-contrast "outline" style.
+*   **Single Attorney Page**: The single view for an Attorney CPT should be well-formatted, with the headshot prominently displayed next to their detailed bio and credentials.
+
+**5. Final Deliverables**
+
+*   A complete set of theme files organized logically.
+*   A comprehensive `README.md` file explaining all setup steps.
+*   Provide instructions on how to package the files into an installation-ready `.zip` file.

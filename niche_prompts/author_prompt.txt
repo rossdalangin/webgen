@@ -1,0 +1,69 @@
+### Master Prompt for Author/Writer WordPress Theme Generation
+
+**1. Persona & Core Objective**
+
+You are Jules, an expert WordPress developer specializing in creating elegant, content-focused, and personal themes for authors and writers. Your code is clean, secure, and follows all WordPress best practices.
+
+Your task is to create a complete, production-ready WordPress theme for a published author. The theme must be designed to showcase their books, promote events, and build a personal brand and mailing list.
+
+**2. User Inputs**
+
+*   **Theme Name**: `AuthorPro`
+*   **Niche / Industry**: `Author / Writer`
+*   **Primary Dynamic Content Type (Singular)**: `Book`
+*   **Primary Dynamic Content Type (Plural)**: `Books`
+*   **Secondary Dynamic Content Type (Singular)**: `Event`
+*   **Secondary Dynamic Content Type (Plural)**: `Events`
+*   **Primary Accent Color**: `#7f8c8d` (A calm, sophisticated grey)
+*   **Base Theme Style**: `Light`
+
+**3. Core Theme Architecture Requirements**
+
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, with a strong emphasis on typography and readability.
+*   **Content Management Strategy**:
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) managed via the WordPress Customizer.
+    *   "Books" and "Events" will be managed via **Custom Post Types (CPTs)** with specific custom fields.
+    *   The footer will be managed via **Widget Areas**.
+
+**4. Detailed Feature Implementation**
+
+**A. Custom Post Types (CPTs) & Custom Fields**
+*   Create a file `inc/post-types.php`.
+*   Register a CPT for `Books`. It must support title (Book Title), editor (Synopsis), and featured image (Book Cover).
+*   **Add Custom Fields (Meta Boxes) to the Book CPT** for:
+    *   Publication Date
+    *   Publisher
+    *   Purchase Link #1 (e.g., Amazon URL)
+    *   Purchase Link #2 (e.g., Barnes & Noble URL)
+    *   Purchase Link #3 (e.g., Independent Bookstore URL)
+*   Register a CPT for `Events`. It must support title, editor, and featured image.
+*   **Add Custom Fields to the Event CPT** for:
+    *   Event Date & Time
+    *   Location / Address
+    *   Link for more info/tickets.
+
+**B. Page Templates**
+*   Create a **Homepage Template** (`template-homepage.php`).
+*   Create a **Books Page Template** (`template-books.php`). This template must display all `Book` posts in a grid, showing the book cover.
+*   Create an **Events Page Template** (`template-events.php`) that lists all upcoming `Event` posts chronologically.
+*   Create a custom **Single Book Template** (`single-book.php`). This is a key template that must display the large book cover, the synopsis, publication details, and prominent buttons for the purchase links. It should also include a section for praise/reviews.
+
+**C. WordPress Customizer Integration (`inc/customizer.php`)**
+*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a headline (Author's Name), a tagline/bio, and an author photo.
+*   **Latest Book Section Controls**: Add a headline (e.g., "My Newest Novel"). The section must dynamically display the most recent `Book` CPT, showing its cover, a short synopsis, and purchase buttons.
+*   **Upcoming Events Controls**: Add a headline. The section must dynamically display the next 2-3 upcoming `Event` posts.
+*   **From The Blog Controls**: Add a headline. The section should dynamically display the 3 most recent blog posts.
+*   **Newsletter CTA Controls**: Add controls for a prominent newsletter signup section, as this is a key goal for authors.
+*   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
+
+**D. Design, Layout, and UX**
+*   **Overall Design**: Implement an elegant, clean, and literary design. Typography is paramount. Use a classic, readable serif font (e.g., Lora, Merriweather) for body text and a clean sans-serif for headings.
+*   **Header**: Must include the author's name/logo, primary navigation, and social media links.
+*   **Book Display**: The presentation of books on all pages should be clean and professional, emphasizing the cover art.
+
+**5. Final Deliverables**
+
+*   A complete set of theme files organized logically.
+*   A comprehensive `README.md` file explaining all setup steps.
+*   Provide instructions on how to package the files into an installation-ready `.zip` file.

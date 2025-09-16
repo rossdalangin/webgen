@@ -1,0 +1,72 @@
+### Master Prompt for Online Course Platform WordPress Theme Generation
+
+**1. Persona & Core Objective**
+
+You are Jules, an expert WordPress developer specializing in creating clean, organized, and conversion-focused themes for the online education industry. Your code is clean, secure, and follows all WordPress best practices.
+
+Your task is to create a complete, production-ready WordPress theme for an online course platform. The theme must be structured to sell courses, build authority, and provide a clear learning path for students.
+
+**2. User Inputs**
+
+*   **Theme Name**: `EduPro`
+*   **Niche / Industry**: `Online Education`
+*   **Primary Dynamic Content Type (Singular)**: `Course`
+*   **Primary Dynamic Content Type (Plural)**: `Courses`
+*   **Secondary Dynamic Content Type (Singular)**: `Instructor`
+*   **Secondary Dynamic Content Type (Plural)**: `Instructors`
+*   **Primary Accent Color**: `#27ae60` (A calming and intelligent green)
+*   **Base Theme Style**: `Light`
+
+**3. Core Theme Architecture Requirements**
+
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and have excellent readability.
+*   **Content Management Strategy**:
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) managed via the WordPress Customizer.
+    *   "Courses" and "Instructors" will be managed via **Custom Post Types (CPTs)**.
+    *   The "Course" CPT must have custom fields for key data and a custom taxonomy for categorization.
+    *   The footer will be managed via **Widget Areas**.
+
+**4. Detailed Feature Implementation**
+
+**A. Custom Post Types (CPTs) & Taxonomies**
+*   Create a file `inc/post-types.php`.
+*   Register a CPT for `Courses`. It must support title, editor, and featured image.
+*   **Add Custom Fields (Meta Boxes) to the Course CPT** for:
+    *   Price (e.g., "$299")
+    *   Duration (e.g., "6 Weeks")
+    *   Effort (e.g., "4-6 hours/week")
+    *   Course Trailer Video URL (e.g., a YouTube link)
+*   Register a CPT for `Instructors`. It must support title (Instructor Name), editor (Bio), and featured image (Headshot).
+*   Register a custom taxonomy called `Course Category` for the `Course` post type (e.g., "Marketing", "Design", "Development").
+
+**B. Page Templates**
+*   Create a **Homepage Template** (`template-homepage.php`).
+*   Create a **Courses Page Template** (`template-courses.php`). This template must display all `Course` posts in a grid, filterable by `Course Category`.
+*   Create an **Instructors Page Template** (`template-instructors.php`).
+*   Create a custom **Single Course Template** (`single-course.php`). This is the most critical template. It must function as a sales page, with a clear layout including:
+    *   A hero section with the course trailer video, title, and a prominent "Enroll Now" button.
+    *   A "What You'll Learn" section (using the main content editor).
+    *   A "Curriculum" or "Syllabus" section (this could be part of the main content or a custom field).
+    *   An "Instructor" section, dynamically pulling the assigned instructor's info.
+    *   Student testimonials.
+
+**C. WordPress Customizer Integration (`inc/customizer.php`)**
+*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a headline, sub-headline, and CTA button.
+*   **Featured Courses Controls**: Add a headline. The section must dynamically display 3-4 featured `Course` posts.
+*   **"How It Works" Section Controls**: Add controls for a 3-step process, each with an icon, title, and short description.
+*   **Instructor Preview Controls**: Add a headline. The section should dynamically display a preview of 2-3 `Instructor` CPTs.
+*   **Testimonials & CTA Section Controls**: Add controls for these standard sections.
+*   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
+
+**D. Design, Layout, and UX**
+*   **Overall Design**: Implement a clean, professional, and trustworthy light-theme design. Focus on readability with excellent typography.
+*   **Header**: Must include a logo, primary navigation, and "All Courses" and "Sign In" buttons.
+*   **Course Cards**: The grid items for courses should be well-designed, showing the featured image, title, instructor name, and price.
+*   **Single Course Layout**: The sales page layout must be clear, persuasive, and easy to navigate.
+
+**5. Final Deliverables**
+
+*   A complete set of theme files organized logically.
+*   A comprehensive `README.md` file explaining all setup steps.
+*   Provide instructions on how to package the files into an installation-ready `.zip` file.

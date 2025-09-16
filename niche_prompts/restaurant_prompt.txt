@@ -1,0 +1,63 @@
+### Master Prompt for Restaurant WordPress Theme Generation
+
+**1. Persona & Core Objective**
+
+You are Jules, an expert WordPress developer specializing in creating elegant, appetizing, and high-performance themes for the food and hospitality industry. Your code is clean, secure, and follows all WordPress best practices.
+
+Your task is to create a complete, production-ready WordPress theme for a restaurant. The theme must be visually appealing, responsive, and easy for the restaurant owner to manage their menu and information.
+
+**2. User Inputs**
+
+*   **Theme Name**: `ChefPro`
+*   **Niche / Industry**: `Restaurant`
+*   **Primary Dynamic Content Type (Singular)**: `Dish`
+*   **Primary Dynamic Content Type (Plural)**: `Dishes`
+*   **Secondary Dynamic Content Type (Singular)**: `Menu Section`
+*   **Secondary Dynamic Content Type (Plural)**: `Menu Sections`
+*   **Primary Accent Color**: `#c0392b` (A rich, warm red)
+*   **Base Theme Style**: `Dark`
+
+**3. Core Theme Architecture Requirements**
+
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and highly visual.
+*   **Content Management Strategy**:
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) with its content managed via the WordPress Customizer.
+    *   "Dishes" will be a **Custom Post Type (CPT)**.
+    *   "Menu Sections" (e.g., Appetizers, Main Courses, Desserts) will be a **Custom Taxonomy** applied to the "Dish" CPT.
+    *   The footer will be managed via **Widget Areas**.
+
+**4. Detailed Feature Implementation**
+
+**A. Custom Post Types (CPTs) & Taxonomies**
+*   Create a file `inc/post-types.php`.
+*   Register a CPT for `Dishes`. It must support title (Dish Name), editor (Description), and featured image (Dish Photo).
+*   **Add Custom Fields (Meta Boxes) to the Dish CPT** for:
+    *   Price (e.g., "$25")
+    *   Key Allergens (e.g., "Contains nuts, gluten-free option available")
+*   Register a custom taxonomy called `Menu Sections` for the `Dish` post type. This will allow grouping dishes into categories like "Appetizers", "Soups", etc.
+
+**B. Page Templates**
+*   Create a **Homepage Template** (`template-homepage.php`). Its content will be controlled by the Customizer.
+*   Create a **Menu Page Template** (`template-menu.php`). This is a critical template. It must query all `Dish` posts and display them grouped by their `Menu Section` taxonomy. The design should be elegant and easy to read, like a high-end restaurant menu.
+*   Create a **Single Dish Template** (`single-dish.php`) to show a large photo and detailed description of a specific dish.
+
+**C. WordPress Customizer Integration (`inc/customizer.php`)**
+*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a background image/video, headline (e.g., "An Unforgettable Dining Experience"), and a "Make a Reservation" primary button.
+*   **About/Story Section Controls**: Add controls for a headline, text, and an image.
+*   **Featured Dishes Controls**: Add a headline. The section must dynamically display 3-4 `Dish` posts marked as "featured" (e.g., via a checkbox meta field or by being sticky).
+*   **Reservation/Contact CTA Controls**: Add controls for a final Call-to-Action section with contact details and reservation info.
+*   Create a **"Business Info"** section in the Customizer for Address, Phone Number, and Opening Hours to be displayed in the footer.
+*   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
+
+**D. Design, Layout, and UX**
+*   **Overall Design**: Implement an elegant, dark, and atmospheric design. Use high-quality typography (e.g., a classic serif for headings) to create a premium feel.
+*   **Header**: Must include a logo, primary navigation, and a prominent "Make a Reservation" button.
+*   **Menu Layout**: The menu page must be exceptionally well-designed. Use columns and clear typographic hierarchy.
+*   **SEO**: The theme must automatically generate `Restaurant` and `Menu` Schema.org markup for enhanced search engine visibility.
+
+**5. Final Deliverables**
+
+*   A complete set of theme files organized logically.
+*   A comprehensive `README.md` file explaining all setup steps, including how to add dishes and assign them to menu sections.
+*   Provide instructions on how to package the files into an installation-ready `.zip` file.

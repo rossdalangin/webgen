@@ -1,0 +1,68 @@
+### Master Prompt for Musician/Band WordPress Theme Generation
+
+**1. Persona & Core Objective**
+
+You are Jules, an expert WordPress developer specializing in creating immersive, edgy, and media-rich themes for musicians, bands, and artists. Your code is clean, secure, and follows all WordPress best practices.
+
+Your task is to create a complete, production-ready WordPress theme for a musician/band. The theme must be designed to promote music, sell tickets, and connect with fans.
+
+**2. User Inputs**
+
+*   **Theme Name**: `BandPro`
+*   **Niche / Industry**: `Musician / Band`
+*   **Primary Dynamic Content Type (Singular)**: `Tour Date`
+*   **Primary Dynamic Content Type (Plural)**: `Tour Dates`
+*   **Secondary Dynamic Content Type (Singular)**: `Album`
+*   **Secondary Dynamic Content Type (Plural)**: `Discography`
+*   **Primary Accent Color**: `#f1c40f` (A vibrant, energetic yellow)
+*   **Base Theme Style**: `Dark`
+
+**3. Core Theme Architecture Requirements**
+
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and highly atmospheric.
+*   **Content Management Strategy**:
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) managed via the WordPress Customizer.
+    *   "Tour Dates" and "Albums" will be managed via **Custom Post Types (CPTs)** with specific custom fields.
+    *   The footer will be managed via **Widget Areas**.
+
+**4. Detailed Feature Implementation**
+
+**A. Custom Post Types (CPTs) & Custom Fields**
+*   Create a file `inc/post-types.php`.
+*   Register a CPT for `Tour Dates`. It must support a title.
+*   **Add Custom Fields (Meta Boxes) to the Tour Date CPT** for:
+    *   Date & Time
+    *   Venue Name
+    *   City & Country
+    *   "Buy Tickets" Link (URL)
+*   Register a CPT for `Albums` (`discography`). It must support title (Album Name), editor (Description/Liner Notes), and featured image (Album Art).
+*   **Add Custom Fields to the Album CPT** for:
+    *   Release Year
+    *   Tracklist (a simple textarea is sufficient)
+    *   Links to streaming services (e.g., Spotify URL, Apple Music URL).
+
+**B. Page Templates**
+*   Create a **Homepage Template** (`template-homepage.php`).
+*   Create a **Tour Page Template** (`template-tour.php`). This template must query all `Tour Date` posts and list them chronologically, with past dates automatically hidden or styled differently. Each entry must display the date, venue, city, and a "Buy Tickets" button.
+*   Create a **Discography Page Template** (`template-discography.php`) that displays all `Album` posts in a grid, showing the album art and title.
+*   Create a **Single Album Template** (`single-album.php`) that displays the large album art, liner notes, tracklist, and links to streaming services.
+
+**C. WordPress Customizer Integration (`inc/customizer.php`)**
+*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a full-screen background video (from YouTube/Vimeo), a large band logo overlay, and social media icons.
+*   **Upcoming Shows Controls**: Add a headline. The section must dynamically display the next 3-4 upcoming `Tour Date` posts.
+*   **Latest Album Controls**: Add a headline. The section must dynamically display the most recent `Album` CPT, showing its cover art, title, and links to stream/buy.
+*   **Music Player Section**: Add a section for a simple music player UI. It doesn't need to be a functional player, but should have the look of one, perhaps to embed a SoundCloud or Spotify player shortcode.
+*   **Video Section Controls**: Add controls for a headline and a YouTube/Vimeo video embed URL to feature a music video.
+*   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
+
+**D. Design, Layout, and UX**
+*   **Overall Design**: Implement an immersive, edgy, dark-theme design. Use a bold, condensed, or stylized font for headings to match the music genre.
+*   **Header**: Should be minimal, perhaps with just a logo and a hamburger menu icon that opens a full-screen navigation overlay.
+*   **Media-Rich**: The design should prioritize images and video. The tour dates list must be clear and easy to read.
+
+**5. Final Deliverables**
+
+*   A complete set of theme files organized logically.
+*   A comprehensive `README.md` file explaining all setup steps.
+*   Provide instructions on how to package the files into an installation-ready `.zip` file.

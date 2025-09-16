@@ -1,0 +1,62 @@
+### Master Prompt for Digital Agency WordPress Theme Generation
+
+**1. Persona & Core Objective**
+
+You are Jules, an expert WordPress developer specializing in creating modern, vibrant, and conversion-focused themes for digital agencies, marketing firms, and creative studios. Your code is clean, secure, and follows all WordPress best practices.
+
+Your task is to create a complete, production-ready WordPress theme for a digital agency. The theme must effectively showcase their portfolio and services to attract new clients.
+
+**2. User Inputs**
+
+*   **Theme Name**: `AgencyPro`
+*   **Niche / Industry**: `Digital Agency`
+*   **Primary Dynamic Content Type (Singular)**: `Project`
+*   **Primary Dynamic Content Type (Plural)**: `Portfolio`
+*   **Secondary Dynamic Content Type (Singular)**: `Service`
+*   **Secondary Dynamic Content Type (Plural)**: `Services`
+*   **Primary Accent Color**: `#8e44ad` (A creative and bold purple)
+*   **Base Theme Style**: `Dark`
+
+**3. Core Theme Architecture Requirements**
+
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and feature bold animations.
+*   **Content Management Strategy**:
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) with its content managed via the WordPress Customizer.
+    *   "Portfolio" and "Services" will be managed via **Custom Post Types (CPTs)**.
+    *   A "Service Type" custom taxonomy will be created to categorize portfolio projects.
+    *   The footer will be managed via **Widget Areas**.
+
+**4. Detailed Feature Implementation**
+
+**A. Custom Post Types (CPTs) & Taxonomies**
+*   Create a file `inc/post-types.php`.
+*   Register a CPT for `Portfolio` (`project`). It must support title, editor, and featured image.
+*   Register a CPT for `Services`. It must support title, editor, and a custom field for a representative icon.
+*   Register a custom taxonomy called `Service Type` for the `Project` post type. This will allow filtering projects by categories like "Web Design", "Branding", "SEO", etc.
+
+**B. Page Templates**
+*   Create a **Homepage Template** (`template-homepage.php`).
+*   Create a **Portfolio Page Template** (`template-portfolio.php`). This template must display all `Project` posts in a grid. **Crucially, it must include a filter menu** at the top that allows users to filter the projects by the `Service Type` taxonomy (e.g., using a library like Isotope.js or by page reloads).
+*   Create a **Services Page Template** (`template-services.php`) that displays all `Service` posts.
+*   Create a custom **Single Project Template** (`single-project.php`). This view must showcase the project with a large hero image/video, a detailed case study description, and key results.
+
+**C. WordPress Customizer Integration (`inc/customizer.php`)**
+*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a headline (e.g., "We Build Brands That Matter"), sub-headline, and a primary "Get a Quote" button.
+*   **Services Preview Controls**: Add a headline. The section should dynamically display the 3-4 most recent `Service` CPTs with their icons.
+*   **Portfolio Preview Controls**: Add a headline. The section must dynamically display the 4-6 most recent `Project` posts in a grid.
+*   **Client Logos Section Controls**: Add a new section with a headline (e.g., "Trusted By") and repeater fields or multiple image upload controls for client logos.
+*   **Testimonials & CTA Section Controls**: Add controls for these standard sections.
+*   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
+
+**D. Design, Layout, and UX**
+*   **Overall Design**: Implement a bold, modern, and creative dark-theme design. Use a clean, geometric sans-serif font.
+*   **Header**: Must include a logo, primary navigation, and a prominent "Get a Quote" CTA button.
+*   **Animations**: The theme should make use of micro-interactions, hover effects, and scroll-triggered animations to feel dynamic and engaging.
+*   **Portfolio Filtering**: The filtering on the portfolio page must be smooth and intuitive.
+
+**5. Final Deliverables**
+
+*   A complete set of theme files organized logically.
+*   A comprehensive `README.md` file explaining all setup steps, including how to use the portfolio filtering.
+*   Provide instructions on how to package the files into an installation-ready `.zip` file.

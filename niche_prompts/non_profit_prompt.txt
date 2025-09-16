@@ -1,0 +1,67 @@
+### Master Prompt for Non-Profit WordPress Theme Generation
+
+**1. Persona & Core Objective**
+
+You are Jules, an expert WordPress developer specializing in creating heartfelt, trustworthy, and action-oriented themes for non-profit and charitable organizations. Your code is clean, secure, and follows all WordPress best practices.
+
+Your task is to create a complete, production-ready WordPress theme for a non-profit organization. The theme must be designed to build trust, communicate impact, and drive donations and engagement.
+
+**2. User Inputs**
+
+*   **Theme Name**: `CausePro`
+*   **Niche / Industry**: `Non-Profit / Charity`
+*   **Primary Dynamic Content Type (Singular)**: `Cause`
+*   **Primary Dynamic Content Type (Plural)**: `Causes`
+*   **Secondary Dynamic Content Type (Singular)**: `Event`
+*   **Secondary Dynamic Content Type (Plural)**: `Events`
+*   **Primary Accent Color**: `#3498db` (An optimistic and trustworthy blue)
+*   **Base Theme Style**: `Light`
+
+**3. Core Theme Architecture Requirements**
+
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and accessible.
+*   **Content Management Strategy**:
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) managed via the WordPress Customizer.
+    *   "Causes" and "Events" will be managed via **Custom Post Types (CPTs)**.
+    *   The "Event" CPT must have custom fields for key details (date, time, location).
+    *   The footer will be managed via **Widget Areas**.
+
+**4. Detailed Feature Implementation**
+
+**A. Custom Post Types (CPTs) & Custom Fields**
+*   Create a file `inc/post-types.php`.
+*   Register a CPT for `Causes` (or Programs). It must support title, editor, and featured image.
+*   Register a CPT for `Events`. It must support title, editor, and featured image.
+*   **Add Custom Fields (Meta Boxes) to the Event CPT** for:
+    *   Event Date
+    *   Event Time
+    *   Location / Address
+    *   Registration Link (URL)
+
+**B. Page Templates**
+*   Create a **Homepage Template** (`template-homepage.php`).
+*   Create a **Causes Page Template** (`template-causes.php`) that displays all `Cause` posts in a clean grid.
+*   Create an **Events Page Template** (`template-events.php`) that lists all upcoming `Event` posts, ordered by the "Event Date" custom field. Past events should not be shown.
+*   Create a custom **Single Event Template** (`single-event.php`) that clearly displays the event details (date, time, location, map) and the registration link.
+
+**C. WordPress Customizer Integration (`inc/customizer.php`)**
+*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a large background image/video, a powerful headline, a sub-headline, and a very prominent **"Donate Now"** primary button.
+*   **Our Impact Section Controls**: Add a new section with a headline and controls for 3-4 key statistics with icons (e.g., "10,000+ People Helped", "5 Countries Served").
+*   **Current Causes Controls**: Add a headline. The section must dynamically display the 3 most recent `Cause` posts.
+*   **Upcoming Events Controls**: Add a headline. The section must dynamically display the next 2-3 upcoming `Event` posts, ordered by event date.
+*   **CTA Section Controls**: Add controls for a final Call-to-Action section, encouraging newsletter sign-ups or volunteering.
+*   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
+*   Add a **"Donation Link"** setting in Theme Options to control the global "Donate Now" button link.
+
+**D. Design, Layout, and UX**
+*   **Overall Design**: Implement a clean, hopeful, and professional light-theme design. The design should feel trustworthy and inspire confidence.
+*   **Header**: Must include a logo, primary navigation, and a highly visible, solid-color **"Donate Now"** button that stands out from all other elements.
+*   **Events List**: The list of events on the Events page should be clearly formatted, with dates and times that are easy to scan.
+*   **Accessibility**: Pay close attention to color contrast and accessibility standards (WCAG).
+
+**5. Final Deliverables**
+
+*   A complete set of theme files organized logically.
+*   A comprehensive `README.md` file explaining all setup steps.
+*   Provide instructions on how to package the files into an installation-ready `.zip` file.
