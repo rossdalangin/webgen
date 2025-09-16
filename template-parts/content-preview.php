@@ -23,6 +23,17 @@
     </div><!-- .entry-summary -->
 
     <footer class="entry-footer">
+        <span class="cat-links">
+            <?php
+                $categories_list = get_the_category_list( esc_html__( ', ', 'fitpro' ) );
+                if ( $categories_list ) {
+                    printf( '<span class="screen-reader-text">%1$s</span>%2$s',
+                        esc_html__( 'Posted in', 'fitpro' ),
+                        $categories_list
+                    );
+                }
+            ?>
+        </span>
         <a href="<?php the_permalink(); ?>" class="read-more"><?php esc_html_e( 'Read More', 'fitpro' ); ?> <span class="screen-reader-text"><?php the_title(); ?></span></a>
     </footer>
 </article><!-- #post-<?php the_ID(); ?> -->

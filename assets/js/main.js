@@ -73,6 +73,28 @@
                 observer.observe(section);
             });
         }
+
+        // --- Header Search Toggle ---
+        const searchToggle = document.querySelector('.search-toggle');
+        const searchOverlay = document.querySelector('.search-overlay');
+        const searchClose = document.querySelector('.search-overlay-close');
+
+        if (searchToggle && searchOverlay && searchClose) {
+            searchToggle.addEventListener('click', function() {
+                searchOverlay.classList.add('is-active');
+                searchOverlay.querySelector('.search-field').focus();
+            });
+
+            searchClose.addEventListener('click', function() {
+                searchOverlay.classList.remove('is-active');
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && searchOverlay.classList.contains('is-active')) {
+                    searchOverlay.classList.remove('is-active');
+                }
+            });
+        }
     });
 
 })(jQuery);

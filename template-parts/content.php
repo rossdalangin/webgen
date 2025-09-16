@@ -63,6 +63,17 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php // We can add tags, categories, etc. here later. ?>
+		<span class="cat-links">
+			<?php
+				/* translators: Used between list items, there is a space after the comma. */
+				$categories_list = get_the_category_list( esc_html__( ', ', 'fitpro' ) );
+				if ( $categories_list ) {
+					printf( '<span class="screen-reader-text">%1$s</span>%2$s',
+						esc_html__( 'Posted in', 'fitpro' ),
+						$categories_list
+					);
+				}
+			?>
+		</span>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
