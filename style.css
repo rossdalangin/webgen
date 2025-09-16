@@ -1,0 +1,21 @@
+/*
+Theme Name: FitPro
+Theme URI: https://example.com/fitpro-theme
+Author: Jules
+Author URI: https://example.com/
+Description: A bold and modern WordPress theme for fitness coaches, designed for lead generation and client acquisition.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Tags: fitness, coaching, personal training, gym, health, personal brand, responsive-layout, custom-colors, custom-logo, blog, one-column
+Text Domain: fitpro
+*/
+
+/*
+ * A very basic reset.
+ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}

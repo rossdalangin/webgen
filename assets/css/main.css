@@ -1,0 +1,368 @@
+/*
+Main Stylesheet for FitPro Theme
+*/
+
+/* --- 1. Variables & Base --- */
+:root {
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-primary-text: #e0e0e0;
+    --color-secondary-text: #a0a0a0;
+    --color-accent: #00ff7f; /* Spring Green */
+    --color-accent-dark: #00cc66;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-primary-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- 2. Layout & Helpers --- */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+/* --- 3. Header --- */
+.site-header {
+    padding: 20px 0;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid #333;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-branding .site-title a {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+}
+.custom-logo {
+    max-height: 50px;
+}
+
+.main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none; /* Hidden on mobile */
+}
+
+.main-navigation li {
+    margin-left: 20px;
+}
+
+.main-navigation a {
+    color: var(--color-primary-text);
+    font-weight: 700;
+}
+
+.main-navigation .current-menu-item > a {
+    color: var(--color-accent);
+}
+
+.menu-toggle {
+    display: block; /* Shown on mobile */
+    background: var(--color-accent);
+    color: #000;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+
+/* --- 4. Footer --- */
+.site-footer {
+    background-color: var(--color-surface);
+    padding: 60px 0 20px;
+    margin-top: 60px;
+    border-top: 1px solid #333;
+}
+
+.footer-widgets-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-widget-area .widget-title {
+    color: var(--color-accent);
+    font-size: 18px;
+}
+
+.footer-widget-area ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-widget-area a {
+    color: var(--color-secondary-text);
+}
+
+.site-info {
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-secondary-text);
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+.site-info a {
+    color: var(--color-accent);
+}
+
+/* --- 5. Homepage Sections --- */
+section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-secondary-text);
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+/* Hero */
+.hero-section {
+    background-color: #000; /* Placeholder */
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero-headline {
+    font-size: 48px;
+}
+
+.hero-subheadline {
+    font-size: 20px;
+    color: var(--color-secondary-text);
+    max-width: 600px;
+    margin: 20px auto 30px;
+}
+
+/* Services */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.service-item {
+    background-color: var(--color-surface);
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.service-icon svg {
+    stroke: var(--color-accent);
+    width: 48px;
+    height: 48px;
+}
+
+/* Testimonials */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+.testimonial-item {
+    background-color: var(--color-surface);
+    padding: 30px;
+    border-left: 5px solid var(--color-accent);
+}
+.testimonial-quote p {
+    font-style: italic;
+    margin: 0;
+}
+.testimonial-author {
+    display: block;
+    margin-top: 15px;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+/* Blog */
+.blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+.blog-post-preview {
+    background: var(--color-surface);
+}
+.post-thumbnail img {
+    width: 100%;
+    display: block;
+}
+.blog-post-preview .entry-header, .blog-post-preview .entry-summary, .blog-post-preview .entry-footer {
+    padding: 20px;
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: var(--color-surface);
+}
+
+/* --- 6. Forms & Buttons --- */
+.cta-button, button, input[type="submit"] {
+    background-color: var(--color-accent);
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover, button:hover, input[type="submit"]:hover {
+    background-color: var(--color-accent-dark);
+}
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 15px;
+    background: #333;
+    border: 1px solid #555;
+    color: var(--color-primary-text);
+    margin-bottom: 15px;
+}
+
+/* --- 7. Exit Intent Popup --- */
+.exit-intent-popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: none; /* Changed from flex to none */
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.exit-intent-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.exit-intent-popup-content {
+    position: relative;
+    background: var(--color-surface);
+    color: var(--color-primary-text);
+    padding: 40px;
+    border-radius: 5px;
+    max-width: 500px;
+    text-align: center;
+    z-index: 1001;
+}
+
+.exit-intent-popup-content h3 {
+    color: var(--color-accent);
+    margin-top: 0;
+}
+
+.close-popup-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+
+/* --- 8. Media Queries --- */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+    .main-navigation ul {
+        display: flex;
+    }
+    .footer-widgets-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .services-grid, .testimonials-grid, .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-widgets-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .services-grid, .blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
