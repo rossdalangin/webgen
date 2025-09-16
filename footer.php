@@ -2,10 +2,6 @@
 /**
  * The template for displaying the footer
  *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
  * @package FitPro
  */
 
@@ -18,44 +14,55 @@
 			<div class="footer-widgets-wrapper">
 
 				<div class="footer-widget-area">
-					<div class="widget">
-						<h2 class="widget-title"><?php bloginfo( 'name' ); ?></h2>
-						<p><?php bloginfo( 'description' ); ?></p>
-					</div>
+					<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+						<?php dynamic_sidebar( 'footer-1' ); ?>
+					<?php else : ?>
+						<!-- Placeholder content if the widget area is empty -->
+						<div class="widget">
+							<h2 class="widget-title"><?php esc_html_e( 'About Us', 'fitpro' ); ?></h2>
+							<p><?php esc_html_e( 'Add a Text widget to this area to say something about your brand.', 'fitpro' ); ?></p>
+						</div>
+					<?php endif; ?>
 				</div>
 
 				<div class="footer-widget-area">
-					<div class="widget">
-						<h2 class="widget-title"><?php esc_html_e( 'Contact Us', 'fitpro' ); ?></h2>
-						<ul>
-							<li><a href="mailto:hello@example.com">hello@example.com</a></li>
-							<li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
-							<li><?php esc_html_e( '123 Fitness St, Workout City', 'fitpro' ); ?></li>
-						</ul>
-					</div>
+					<?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
+						<?php dynamic_sidebar( 'footer-2' ); ?>
+					<?php else : ?>
+						<!-- Placeholder content -->
+						<div class="widget">
+							<h2 class="widget-title"><?php esc_html_e( 'Contact Us', 'fitpro' ); ?></h2>
+							<ul>
+								<li><a href="#"><?php esc_html_e( 'Contact Page', 'fitpro' ); ?></a></li>
+							</ul>
+						</div>
+					<?php endif; ?>
 				</div>
 
 				<div class="footer-widget-area">
-					<div class="widget">
-						<h2 class="widget-title"><?php esc_html_e( 'Follow Us', 'fitpro' ); ?></h2>
-						<ul class="social-links">
-							<li><a href="#" target="_blank">Facebook</a></li>
-							<li><a href="#" target="_blank">Instagram</a></li>
-							<li><a href="#" target="_blank">YouTube</a></li>
-						</ul>
-					</div>
+					<?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
+						<?php dynamic_sidebar( 'footer-3' ); ?>
+					<?php else : ?>
+						<!-- Placeholder content -->
+						<div class="widget">
+							<h2 class="widget-title"><?php esc_html_e( 'Quick Links', 'fitpro' ); ?></h2>
+							<ul>
+								<li><a href="#"><?php esc_html_e( 'Add a Navigation Menu widget here.', 'fitpro' ); ?></a></li>
+							</ul>
+						</div>
+					<?php endif; ?>
 				</div>
 
 				<div class="footer-widget-area">
-					<div class="widget">
-						<h2 class="widget-title"><?php esc_html_e( 'Newsletter', 'fitpro' ); ?></h2>
-						<p><?php esc_html_e( 'Subscribe to get our latest fitness tips.', 'fitpro' ); ?></p>
-						<form class="newsletter-form">
-							<input type="email" name="email" placeholder="<?php esc_attr_e( 'Your Email', 'fitpro' ); ?>" required>
-							<button type="submit"><?php esc_html_e( 'Subscribe', 'fitpro' ); ?></button>
-						</form>
-                        <p class="form-plugin-notice"><small><em><?php echo esc_html__( 'Requires a functional form plugin.', 'fitpro' ); ?></em></small></p>
-					</div>
+                    <?php if ( is_active_sidebar( 'footer-4' ) ) : ?>
+						<?php dynamic_sidebar( 'footer-4' ); ?>
+					<?php else : ?>
+						<!-- Placeholder content -->
+						<div class="widget">
+							<h2 class="widget-title"><?php esc_html_e( 'Newsletter', 'fitpro' ); ?></h2>
+							<p><?php esc_html_e( 'Add a newsletter signup form widget here.', 'fitpro' ); ?></p>
+						</div>
+					<?php endif; ?>
 				</div>
 
 			</div><!-- .footer-widgets-wrapper -->

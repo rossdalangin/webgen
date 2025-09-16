@@ -184,3 +184,56 @@ function fitpro_seo_features() {
 	echo '<script type="application/ld+json">' . wp_json_encode( $schema ) . '</script>' . "\n";
 }
 add_action( 'wp_head', 'fitpro_seo_features' );
+
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function fitpro_widgets_init() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Column 1', 'fitpro' ),
+			'id'            => 'footer-1',
+			'description'   => esc_html__( 'Add widgets here.', 'fitpro' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+    register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Column 2', 'fitpro' ),
+			'id'            => 'footer-2',
+			'description'   => esc_html__( 'Add widgets here.', 'fitpro' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+    register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Column 3', 'fitpro' ),
+			'id'            => 'footer-3',
+			'description'   => esc_html__( 'Add widgets here.', 'fitpro' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+    register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Column 4', 'fitpro' ),
+			'id'            => 'footer-4',
+			'description'   => esc_html__( 'Add widgets here.', 'fitpro' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'fitpro_widgets_init' );

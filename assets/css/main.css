@@ -323,7 +323,16 @@ section {
 .read-more {
     font-weight: bold;
     color: var(--color-accent);
+    transition: filter 0.3s ease;
 }
+
+.read-more:hover,
+.site-info a:hover,
+.main-navigation .current-menu-item > a:hover,
+.testimonial-author:hover {
+    filter: brightness(90%);
+}
+
 
 /* Services Page Template */
 .service-offering {
@@ -337,6 +346,29 @@ section {
 .service-offering ul {
     text-align: left;
     margin: 1.5em 0;
+}
+
+/* About Page Template */
+.team-members-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.team-member {
+    background-color: var(--color-surface);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.team-member-photo img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 3px solid var(--color-accent);
 }
 
 /* CTA Section */
@@ -493,5 +525,8 @@ input[type="text"], input[type="email"] {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
+    }
+    .team-members-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

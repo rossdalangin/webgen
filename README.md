@@ -76,6 +76,16 @@ This theme includes custom post types for managing your team and services.
 4.  Under "Menu Settings", set the "Display location" to **Primary Menu**.
 5.  **Save Menu**.
 
+### Step 6: Add Content to the Footer
+
+The footer is split into four widget columns. You can add any content you like to these.
+
+1.  Go to **Appearance > Widgets**.
+2.  You will see four widget areas: **Footer Column 1, 2, 3, and 4**.
+3.  Click on one of the areas to open it. Click the **+** icon to add a new widget block.
+4.  You can add any block you like, such as a **Paragraph** block for text, a **Navigation Menu** block for links, or a **Shortcode** block for a newsletter signup form.
+5.  Add widgets to all four columns to build out your footer.
+
 ---
 
 Thank you for using the FitPro theme!
