@@ -15,7 +15,7 @@ get_header();
         $sections = array(
             'hero' => array(
                 'order' => get_theme_mod('fitpro_hero_order', 10),
-                'enabled' => true, // You could add a checkbox in customizer to disable sections
+                'enabled' => true,
             ),
             'services' => array(
                 'order' => get_theme_mod('fitpro_services_preview_order', 20),
@@ -35,9 +35,12 @@ get_header();
             ),
         );
 
-        // 2. Sort the sections array based on the 'order' key
+        // 2. Sort the sections array based on the 'order' key (PHP 5.6+ compatible)
         uasort($sections, function($a, $b) {
-            return $a['order'] <=> $b['order'];
+            if ($a['order'] == $b['order']) {
+                return 0;
+            }
+            return ($a['order'] < $b['order']) ? -1 : 1;
         });
 
         // 3. Loop through the sorted sections and display their content
@@ -50,7 +53,6 @@ get_header();
             switch ($slug) {
                 case 'hero':
                     ?>
-                    <!-- Hero Section -->
                     <section class="hero-section">
                         <div class="container">
                             <div class="hero-content">
@@ -65,7 +67,6 @@ get_header();
 
                 case 'services':
                     ?>
-                    <!-- Services Section -->
                     <section class="services-section fade-in-section">
                         <div class="container">
                             <h2 class="section-title"><?php echo esc_html( get_theme_mod('fitpro_services_headline', 'Our Core Programs') ); ?></h2>
@@ -78,7 +79,7 @@ get_header();
                                         ?>
                                         <div class="service-item">
                                             <h3 class="service-title"><?php the_title(); ?></h3>
-                                            <div class="service-description"><?php the_content(); ?></div>
+                                            <div class="service-description"><?php echo wp_kses_post(get_the_content()); ?></div>
                                         </div>
                                         <?php
                                     endwhile;
@@ -93,7 +94,6 @@ get_header();
 
                 case 'testimonials':
                     ?>
-                    <!-- Testimonials Section -->
                     <section class="testimonials-section fade-in-section">
                         <div class="container">
                             <h2 class="section-title"><?php echo esc_html( get_theme_mod('fitpro_testimonials_headline', 'What Our Clients Say') ); ?></h2>
@@ -115,7 +115,6 @@ get_header();
 
                 case 'blog':
                     ?>
-                    <!-- Blog Section -->
                     <section class="blog-section fade-in-section">
                         <div class="container">
                             <h2 class="section-title"><?php echo esc_html( get_theme_mod('fitpro_blog_headline', 'Latest From The Blog') ); ?></h2>
@@ -138,7 +137,6 @@ get_header();
 
                 case 'cta':
                     ?>
-                    <!-- CTA Section -->
                     <section id="contact" class="cta-section fade-in-section">
                         <div class="container">
                             <div class="cta-content">
