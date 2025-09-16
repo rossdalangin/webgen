@@ -111,6 +111,100 @@ function fitpro_customize_register( $wp_customize ) {
         'selector' => '.site-info .copyright-text',
         'render_callback' => 'fitpro_customize_partial_footer_copyright_text',
     ) );
+
+
+    // =================================================================
+    // About Page Settings
+    // =================================================================
+    $wp_customize->add_section( 'fitpro_about_page_section' , array(
+        'title'      => __( 'About Page Content', 'fitpro' ),
+        'panel'      => 'fitpro_theme_options',
+        'priority'   => 40,
+    ) );
+
+    // Mission Headline
+    $wp_customize->add_setting( 'fitpro_about_mission_headline', array('default' => 'Our Mission: Your Peak Performance', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_about_mission_headline', array('label' => 'Mission Headline', 'section' => 'fitpro_about_page_section', 'type' => 'text'));
+
+    // Mission Text
+    $wp_customize->add_setting( 'fitpro_about_mission_text', array('default' => 'We believe that fitness is not just about looking good—it\'s about feeling unstoppable...', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_about_mission_text', array('label' => 'Mission Text', 'section' => 'fitpro_about_page_section', 'type' => 'textarea'));
+
+    // Story Headline
+    $wp_customize->add_setting( 'fitpro_about_story_headline', array('default' => 'The FitPro Story', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_about_story_headline', array('label' => 'Story Headline', 'section' => 'fitpro_about_page_section', 'type' => 'text'));
+
+    // Story Text
+    $wp_customize->add_setting( 'fitpro_about_story_text', array('default' => 'Founded by certified coach Alex Jordan...', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_about_story_text', array('label' => 'Story Text', 'section' => 'fitpro_about_page_section', 'type' => 'textarea'));
+
+    // Team Headline
+    $wp_customize->add_setting( 'fitpro_about_team_headline', array('default' => 'Meet the Team', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_about_team_headline', array('label' => 'Team Headline', 'section' => 'fitpro_about_page_section', 'type' => 'text'));
+
+    // Team Member 1 Name
+    $wp_customize->add_setting( 'fitpro_about_team1_name', array('default' => 'Alex Jordan - Founder & Head Coach', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_about_team1_name', array('label' => 'Team Member 1 Name', 'section' => 'fitpro_about_page_section', 'type' => 'text'));
+    // Team Member 1 Bio
+    $wp_customize->add_setting( 'fitpro_about_team1_bio', array('default' => 'With over 10 years of experience...', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_about_team1_bio', array('label' => 'Team Member 1 Bio', 'section' => 'fitpro_about_page_section', 'type' => 'textarea'));
+
+    // Team Member 2 Name
+    $wp_customize->add_setting( 'fitpro_about_team2_name', array('default' => 'Jenna Davis - Nutrition Specialist', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_about_team2_name', array('label' => 'Team Member 2 Name', 'section' => 'fitpro_about_page_section', 'type' => 'text'));
+    // Team Member 2 Bio
+    $wp_customize->add_setting( 'fitpro_about_team2_bio', array('default' => 'Jenna is a registered dietitian...', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_about_team2_bio', array('label' => 'Team Member 2 Bio', 'section' => 'fitpro_about_page_section', 'type' => 'textarea'));
+
+
+    // =================================================================
+    // Services Page Settings
+    // =================================================================
+    $wp_customize->add_section( 'fitpro_services_page_section' , array(
+        'title'      => __( 'Services Page Content', 'fitpro' ),
+        'panel'      => 'fitpro_theme_options',
+        'priority'   => 50,
+    ) );
+
+    // Service 1 Title
+    $wp_customize->add_setting( 'fitpro_service1_title', array('default' => '1-on-1 Personal Training', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_service1_title', array('label' => 'Service 1 Title', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
+    // Service 1 Description
+    $wp_customize->add_setting( 'fitpro_service1_desc', array('default' => 'Our flagship program is designed for maximum results...', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_service1_desc', array('label' => 'Service 1 Description', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
+    // Service 1 Features
+    $wp_customize->add_setting( 'fitpro_service1_features', array('default' => "Fully customized weekly workout schedule\nIn-person or live video sessions\nContinuous progress tracking and adjustments", 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_service1_features', array('label' => 'Service 1 Features (1 per line)', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
+    // Service 1 Price
+    $wp_customize->add_setting( 'fitpro_service1_price', array('default' => 'Starting at $300/month', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_service1_price', array('label' => 'Service 1 Price', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
+
+    // Service 2 Title
+    $wp_customize->add_setting( 'fitpro_service2_title', array('default' => 'Custom Nutrition Planning', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_service2_title', array('label' => 'Service 2 Title', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
+    // Service 2 Description
+    $wp_customize->add_setting( 'fitpro_service2_desc', array('default' => 'Proper nutrition is the cornerstone...', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_service2_desc', array('label' => 'Service 2 Description', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
+    // Service 2 Features
+    $wp_customize->add_setting( 'fitpro_service2_features', array('default' => "Comprehensive metabolic and lifestyle assessment\nCustomized meal plans and recipes\nWeekly check-ins and plan adjustments", 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_service2_features', array('label' => 'Service 2 Features (1 per line)', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
+    // Service 2 Price
+    $wp_customize->add_setting( 'fitpro_service2_price', array('default' => 'Starting at $150/month', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_service2_price', array('label' => 'Service 2 Price', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
+
+    // Service 3 Title
+    $wp_customize->add_setting( 'fitpro_service3_title', array('default' => 'Online Fitness Coaching', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_service3_title', array('label' => 'Service 3 Title', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
+    // Service 3 Description
+    $wp_customize->add_setting( 'fitpro_service3_desc', array('default' => 'Get the expertise of a world-class coach...', 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_service3_desc', array('label' => 'Service 3 Description', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
+    // Service 3 Features
+    $wp_customize->add_setting( 'fitpro_service3_features', array('default' => "Personalized training program delivered via our app\nVideo demonstrations for all exercises\nWeekly email check-ins and feedback", 'sanitize_callback' => 'wp_kses_post'));
+    $wp_customize->add_control( 'fitpro_service3_features', array('label' => 'Service 3 Features (1 per line)', 'section' => 'fitpro_services_page_section', 'type' => 'textarea'));
+    // Service 3 Price
+    $wp_customize->add_setting( 'fitpro_service3_price', array('default' => 'Starting at $100/month', 'sanitize_callback' => 'sanitize_text_field'));
+    $wp_customize->add_control( 'fitpro_service3_price', array('label' => 'Service 3 Price', 'section' => 'fitpro_services_page_section', 'type' => 'text'));
+
 }
 add_action( 'customize_register', 'fitpro_customize_register' );
 

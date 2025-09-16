@@ -28,7 +28,17 @@ You first need to create the essential pages for your site.
     *   **Contact**: Your contact page.
     *   **Blog**: An empty page that will be used to display your posts.
 
-### Step 2: Set Your Static Front Page
+### Step 2: Assign Page Templates
+
+For the About and Services pages, you need to assign their custom page template.
+
+1.  Go to **Pages** and open the **About** page for editing.
+2.  In the right-hand sidebar, under the "Page" tab, find the **Template** panel.
+3.  Select **"About Page"** from the dropdown menu.
+4.  Click **Update**.
+5.  Repeat this process for the **Services** page, selecting the **"Services Page"** template.
+
+### Step 3: Set Your Static Front Page
 
 You need to tell WordPress to use your "Home" page as the main page of your site.
 
@@ -38,9 +48,7 @@ You need to tell WordPress to use your "Home" page as the main page of your site
 4.  For the **Posts page**, select the "**Blog**" page you created.
 5.  Save your changes.
 
-### Step 3: Add Demo Content to Pages
-
-This theme comes with high-quality demo content to get you started quickly. The content is located in the `demo-content` folder of the theme.
+### Step 4: Add Demo Content
 
 **For the Homepage:**
 1. Open your **Home** page in the WordPress editor.
@@ -49,40 +57,30 @@ This theme comes with high-quality demo content to get you started quickly. The 
 4. Copy the entire content of the file and paste it into the Custom HTML block.
 5. Click **Update** or **Publish**.
 
-**For Other Pages (About, Services, Contact):**
-1. Open the page (e.g., About) in the WordPress editor.
+**For the Contact Page:**
+1. Open your **Contact** page in the editor.
 2. Add a **Custom HTML** block.
-3. Open the corresponding file (`demo-content/about-page.html`, etc.) and copy/paste the content.
-4. Click **Update** or **Publish**.
+3. Open `demo-content/contact-page.html`, copy the content, and paste it into the block.
+4. Remember to replace the placeholder shortcode with one from your forms plugin.
+5. Click **Update** or **Publish**.
 
-### Step 4: Configure the Navigation Menu
+### Step 5: Configure Content in the Customizer
 
-1.  Go to **Appearance > Menus**.
-2.  Click **create a new menu**. Give it a name (e.g., "Main Menu") and click **Create Menu**.
-3.  On the left, select the pages you want to add to your menu (Home, About, Services, Contact, Blog) and click **Add to Menu**.
-4.  Drag and drop the menu items to arrange them in your desired order.
-5.  Under "Menu Settings" at the bottom, check the box for **Primary Menu** in the "Display location" section.
-6.  Click **Save Menu**.
-
-### Step 5: Customize Your Theme
-
-You can change the theme's appearance in the WordPress Customizer.
+The content for the **About** and **Services** pages is controlled via the Customizer for easy access.
 
 1.  Go to **Appearance > Customize**.
-2.  In the "FitPro Theme Options" panel, you can:
-    *   Change the **Accent Color**.
-    *   Select a new **Heading Font**.
-    *   Update the **Footer Copyright Text**.
-3.  You can also upload your own logo under **Site Identity > Logo**.
+2.  Open the **FitPro Theme Options** panel.
+3.  You will find sections for **About Page Content** and **Services Page Content**. Open these sections to edit all the text and pricing information for these pages.
+4.  You can also change the **Accent Color**, **Heading Font**, and **Footer Copyright Text** in the other sections.
+5.  Upload your own logo under **Site Identity > Logo**.
 
-### Step 6: Making Forms Functional
+### Step 6: Configure the Navigation Menu
 
-The theme includes several demo forms. To make these functional, you need to use a forms plugin.
-
-1.  Install and activate a plugin like **WPForms** or **Contact Form 7**.
-2.  Create a new form within the plugin.
-3.  Copy the shortcode provided by the plugin.
-4.  Paste the shortcode into your pages to replace the placeholder HTML form markup.
+1.  Go to **Appearance > Menus**.
+2.  **Create a new menu**.
+3.  Add the pages you created (Home, About, Services, Contact, Blog) to the menu.
+4.  Under "Menu Settings", set the "Display location" to **Primary Menu**.
+5.  **Save Menu**.
 
 ---
 
