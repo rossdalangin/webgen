@@ -182,7 +182,8 @@ img {
 .footer-widget-area .widget h3,
 .footer-widget-area .widget h4,
 .footer-widget-area .widget h5,
-.footer-widget-area .widget h6 {
+.footer-widget-area .widget h6,
+.footer-widget-area .wp-block-heading {
     color: var(--color-accent);
     font-size: 1.25em;
     margin-bottom: 1.2em;
@@ -377,6 +378,57 @@ section {
     margin: 0 auto 20px;
     border: 3px solid var(--color-accent);
 }
+
+/* --- Single Post / Page Content --- */
+.single-post .entry-header,
+.page .entry-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.single-post .entry-title {
+    font-size: 3em;
+}
+
+.single-post .post-thumbnail img {
+    border-radius: var(--border-radius);
+    margin-bottom: 40px;
+}
+
+.single-post .entry-content,
+.page .entry-content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.single-post .entry-content p,
+.page .entry-content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+}
+
+.single-post .entry-content h2,
+.page .entry-content h2 {
+    font-size: 2em;
+    margin-top: 2em;
+}
+
+.single-post .entry-content ul,
+.page .entry-content ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.single-post .entry-content blockquote,
+.page .entry-content blockquote {
+    border-left: 4px solid var(--color-accent);
+    padding-left: 20px;
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--color-secondary-text);
+}
+
 
 /* CTA Section */
 .cta-section {
