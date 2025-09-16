@@ -44,7 +44,7 @@ get_header();
                             <div class="service-offering">
                                 <h3 class="service-title"><?php the_title(); ?></h3>
                                 <div class="service-content"><?php the_content(); ?></div>
-                                <a href="#contact" class="cta-button"><?php esc_html_e( 'Learn More', 'fitpro' ); ?></a>
+                                <a href="<?php the_permalink(); ?>" class="cta-button"><?php esc_html_e( 'View Details', 'fitpro' ); ?></a>
                             </div>
                             <?php
                         endwhile;

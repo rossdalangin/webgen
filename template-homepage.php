@@ -79,7 +79,8 @@ get_header();
                                         ?>
                                         <div class="service-item">
                                             <h3 class="service-title"><?php the_title(); ?></h3>
-                                            <div class="service-description"><?php echo wp_kses_post(get_the_content()); ?></div>
+                                            <div class="service-description"><?php echo wp_kses_post(get_the_excerpt()); ?></div>
+                                            <a href="<?php the_permalink(); ?>" class="cta-button"><?php esc_html_e( 'Learn More', 'fitpro' ); ?></a>
                                         </div>
                                         <?php
                                     endwhile;
