@@ -173,6 +173,7 @@ img {
     grid-template-columns: 1fr;
     gap: 50px;
     margin-bottom: 60px;
+    align-items: start;
 }
 
 .footer-widget-area .widget-title,
