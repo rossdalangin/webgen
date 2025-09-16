@@ -1,12 +1,21 @@
-### Master Prompt for Real Estate Agency WordPress Theme Generation
+### Master Prompt for Real Estate Agency WordPress Theme Generation (Enhanced)
 
 **1. Persona & Core Objective**
 
 You are Jules, an expert WordPress developer specializing in creating high-performance, lead-generating themes for the real estate industry. Your code is clean, secure, and follows all WordPress best practices.
 
-Your task is to create a complete, production-ready WordPress theme for a real estate agency. The theme must be fully functional, responsive, and highly customizable, with a strong focus on showcasing properties.
+Your task is to create a complete, production-ready WordPress theme for a real estate agency. The theme must be optimized to capture leads (property inquiries and showing requests) by beautifully showcasing properties.
 
-**2. User Inputs**
+**2. Conversion Strategy**
+
+*   **Primary Goal**: Generate leads via "Request a Showing" or "Contact Agent" forms on single property pages.
+*   **User Journey**:
+    1.  Engage visitor with a powerful property search on the homepage.
+    2.  Build trust with agent profiles and testimonials.
+    3.  Allow users to easily browse and filter properties on an archive page.
+    4.  Convert the user on the single property page with compelling photos, detailed information, and a prominent contact form.
+
+**3. User Inputs**
 
 *   **Theme Name**: `RealtyPro`
 *   **Niche / Industry**: `Real Estate Agency`
@@ -17,51 +26,49 @@ Your task is to create a complete, production-ready WordPress theme for a real e
 *   **Primary Accent Color**: `#0073e6` (A professional and trustworthy blue)
 *   **Base Theme Style**: `Light`
 
-**3. Core Theme Architecture Requirements**
+**4. Core Theme Architecture Requirements**
 
 *   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and image-forward.
 *   **Content Management Strategy**:
-    *   The **Homepage** will be a custom Page Template with its content managed via the WordPress Customizer.
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) managed via the WordPress Customizer.
     *   "Properties" and "Agents" will be managed via **Custom Post Types (CPTs)**.
-    *   **Crucially**, the "Property" CPT must have custom fields (meta boxes) for key details.
+    *   The "Property" CPT must have extensive custom fields and be filterable by custom taxonomies.
     *   The footer will be managed via **Widget Areas**.
 
-**4. Detailed Feature Implementation**
+**5. Detailed Feature Implementation**
 
-**A. Custom Post Types (CPTs) & Custom Fields**
-*   Create a file `inc/post-types.php`.
-*   Register a CPT for `Properties`. It must support title, editor, and featured image.
-*   **Add Custom Fields (Meta Boxes) to the Property CPT** for:
-    *   Price (e.g., "$500,000")
-    *   Address
-    *   Bedrooms (e.g., "4")
-    *   Bathrooms (e.g., "3")
-    *   Square Footage (e.g., "2,500 sqft")
-    *   A simple image gallery (e.g., using multiple image upload fields or a repeatable field).
-*   Register a CPT for `Agents`. It must support title (Agent Name), editor (Bio), and featured image (Headshot).
+**A. Custom Post Types (CPTs) & Taxonomies**
+*   Create `inc/post-types.php`.
+*   Register a CPT for `Properties`. Supports: title, editor, featured image.
+*   **Add Custom Fields (Meta Boxes) to the Property CPT** for: Price, Address, Bedrooms, Bathrooms, Square Footage, Year Built, Property Status (e.g., For Sale, For Rent, Sold), and a **Photo Gallery** (must support multiple images).
+*   Register a CPT for `Agents`. Supports: title (Name), editor (Bio), featured image (Headshot), and custom fields for Phone Number and Email.
+*   Register two custom taxonomies for the `Property` CPT: `Location` (e.g., city or neighborhood) and `Property Type` (e.g., "Single-Family Home", "Condo", "Townhouse").
 
 **B. Page Templates**
-*   Create a **Homepage Template** (`template-homepage.php`). Its content will be controlled by the Customizer.
-*   Create a **Properties Page Template** (`template-properties.php`). This template will display all `Property` posts in a grid, showing the featured image, price, address, and key stats (beds, baths).
-*   Create an **Agents Page Template** (`template-agents.php`). This will display all `Agent` posts in a professional grid.
-*   Create a custom **Single Property Template** (`single-property.php`). This is a critical view that must cleanly display all property details: the photo gallery, price, address, description, and all custom field data.
+*   Create a **Homepage Template** (`template-homepage.php`).
+*   Create a **Properties Page Template** (`template-properties.php`). This template must display all `Property` posts in a grid and **must include AJAX-powered filter controls** for `Location`, `Property Type`, price range, bedrooms, and bathrooms.
+*   Create a custom **Single Property Template** (`single-property.php`). This is the key conversion page. It must feature:
+    *   A large image gallery/slider at the top.
+    *   A sticky sidebar with the property's key stats, agent info, and a prominent "Request a Showing" contact form.
+    *   A map view of the property's location.
 
 **C. WordPress Customizer Integration (`inc/customizer.php`)**
-*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
-*   **Hero Section Controls**: Add controls for a background image, headline (e.g., "Find Your Dream Home"), and a prominent **Property Search Bar UI** (the form itself does not need a functional backend, but the UI should be present).
-*   **Featured Properties Controls**: Add a headline control. The section must dynamically query and display 3-6 "featured" `Property` posts (this can be based on a "featured" checkbox custom field, or simply the most recent properties).
-*   **Agents Preview Controls**: Add a headline. The section should dynamically display a preview of 2-3 `Agent` CPTs.
+*   Create a **"Homepage Sections"** panel with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a background image, headline, and a detailed **Property Search Filter UI** that matches the filters on the main properties page.
+*   **Featured Properties Controls**: Add a headline. The section must dynamically display 3-6 "featured" `Property` posts.
+*   **Agent Preview Controls**: Add a headline. Dynamically display a preview of 2-3 `Agent` CPTs.
+*   **Neighborhoods/Locations Controls**: Add a section to highlight 3-4 key locations/neighborhoods, linking to their respective archive pages.
 *   **Testimonials & CTA Section Controls**: Add controls for these standard sections.
 *   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
 
 **D. Design, Layout, and UX**
-*   **Overall Design**: Implement a clean, modern, and bright design that makes property photos stand out.
-*   **Header**: Must include a logo, primary navigation, phone number, and the search icon.
-*   **Photo Gallery**: The image gallery on the single property page should be implemented with a lightbox effect for a professional viewing experience.
-*   **Single Property View**: The layout must be easy to scan, with key information (price, beds, baths) highly visible. An integrated contact form for "Requesting a Showing" is required.
+*   **Overall Design**: Implement a clean, modern, bright, and professional design that emphasizes high-quality photography.
+*   **Header**: Must include a logo, primary navigation, and the firm's phone number.
+*   **Property Search**: The filtering on the properties page must be fast and intuitive, updating the property grid without a page reload (AJAX).
+*   **Mortgage Calculator**: Include a simple mortgage calculator tool, either as a sidebar widget or on its own page.
 
 **5. Final Deliverables**
 
 *   A complete set of theme files organized logically.
-*   A comprehensive `README.md` file explaining all setup steps, including how to add property details in the custom fields.
+*   A comprehensive `README.md` file explaining all setup steps, including the property custom fields and AJAX filters.
 *   Provide instructions on how to package the files into an installation-ready `.zip` file.

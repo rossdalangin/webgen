@@ -1,12 +1,22 @@
-### Master Prompt for Non-Profit WordPress Theme Generation
+### Master Prompt for Non-Profit WordPress Theme Generation (Enhanced)
 
 **1. Persona & Core Objective**
 
 You are Jules, an expert WordPress developer specializing in creating heartfelt, trustworthy, and action-oriented themes for non-profit and charitable organizations. Your code is clean, secure, and follows all WordPress best practices.
 
-Your task is to create a complete, production-ready WordPress theme for a non-profit organization. The theme must be designed to build trust, communicate impact, and drive donations and engagement.
+Your task is to create a complete, production-ready WordPress theme for a non-profit organization, optimized to maximize donations and supporter engagement.
 
-**2. User Inputs**
+**2. Conversion Strategy**
+
+*   **Primary Goal**: Maximize online donations through a clear and persistent "Donate" CTA.
+*   **Secondary Goal**: Recruit volunteers and grow the mailing list.
+*   **User Journey**:
+    1.  Create an immediate emotional connection with a powerful hero image/video.
+    2.  Build trust and show impact with clear statistics and stories about the organization's causes.
+    3.  Provide clear pathways for engagement (Donate, Volunteer, Learn More).
+    4.  Make the donation process feel secure and straightforward.
+
+**3. User Inputs**
 
 *   **Theme Name**: `CausePro`
 *   **Niche / Industry**: `Non-Profit / Charity`
@@ -17,48 +27,46 @@ Your task is to create a complete, production-ready WordPress theme for a non-pr
 *   **Primary Accent Color**: `#3498db` (An optimistic and trustworthy blue)
 *   **Base Theme Style**: `Light`
 
-**3. Core Theme Architecture Requirements**
+**4. Core Theme Architecture Requirements**
 
-*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and accessible.
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and highly accessible (WCAG compliant).
 *   **Content Management Strategy**:
     *   The **Homepage** will be a custom Page Template (`template-homepage.php`) managed via the WordPress Customizer.
     *   "Causes" and "Events" will be managed via **Custom Post Types (CPTs)**.
-    *   The "Event" CPT must have custom fields for key details (date, time, location).
     *   The footer will be managed via **Widget Areas**.
 
-**4. Detailed Feature Implementation**
+**5. Detailed Feature Implementation**
 
 **A. Custom Post Types (CPTs) & Custom Fields**
-*   Create a file `inc/post-types.php`.
-*   Register a CPT for `Causes` (or Programs). It must support title, editor, and featured image.
-*   Register a CPT for `Events`. It must support title, editor, and featured image.
-*   **Add Custom Fields (Meta Boxes) to the Event CPT** for:
-    *   Event Date
-    *   Event Time
-    *   Location / Address
-    *   Registration Link (URL)
+*   Create `inc/post-types.php`.
+*   Register a CPT for `Causes`. Supports: title, editor, featured image.
+*   Register a CPT for `Events`. Supports: title, editor, featured image.
+*   **Add Custom Fields to the Event CPT** for: Event Date & Time, Location, and a Registration/Info Link.
+*   **Add a Custom Taxonomy `Event Type`** to the Event CPT (e.g., "Fundraiser", "Volunteer Opportunity", "Webinar").
 
 **B. Page Templates**
 *   Create a **Homepage Template** (`template-homepage.php`).
-*   Create a **Causes Page Template** (`template-causes.php`) that displays all `Cause` posts in a clean grid.
-*   Create an **Events Page Template** (`template-events.php`) that lists all upcoming `Event` posts, ordered by the "Event Date" custom field. Past events should not be shown.
-*   Create a custom **Single Event Template** (`single-event.php`) that clearly displays the event details (date, time, location, map) and the registration link.
+*   Create a **Causes Page Template** (`template-causes.php`) that displays all `Cause` posts.
+*   Create an **Events Page Template** (`template-events.php`) that lists all upcoming `Event` posts chronologically, filterable by `Event Type`.
+*   Create a custom **Single Cause Template** (`single-cause.php`) designed to tell a compelling story, show impact with photos/stats, and include a prominent "Donate to this Cause" button.
 
 **C. WordPress Customizer Integration (`inc/customizer.php`)**
-*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
-*   **Hero Section Controls**: Add controls for a large background image/video, a powerful headline, a sub-headline, and a very prominent **"Donate Now"** primary button.
-*   **Our Impact Section Controls**: Add a new section with a headline and controls for 3-4 key statistics with icons (e.g., "10,000+ People Helped", "5 Countries Served").
-*   **Current Causes Controls**: Add a headline. The section must dynamically display the 3 most recent `Cause` posts.
-*   **Upcoming Events Controls**: Add a headline. The section must dynamically display the next 2-3 upcoming `Event` posts, ordered by event date.
-*   **CTA Section Controls**: Add controls for a final Call-to-Action section, encouraging newsletter sign-ups or volunteering.
+*   Create a **"Homepage Sections"** panel with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a background image/video, a powerful headline (e.g., "Join Us in Making a Difference"), and a highly prominent **"Donate Now"** primary button.
+*   **Our Impact Section Controls**: Add a headline and controls for 4 key statistics with icons (e.g., "10,000+ People Helped", "5 Countries Served").
+*   **Current Causes Controls**: Add a headline. Dynamically display the 3 most recent `Cause` posts.
+*   **Campaign Feature Section Controls**: Add a new section to feature a single, major campaign. Include controls for a headline, text, a **Campaign Goal Progress Bar** (e.g., fields for "Amount Raised" and "Goal Amount"), and a CTA button.
+*   **Upcoming Events Controls**: Add a headline. Dynamically display the next 2-3 upcoming `Event` posts.
 *   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
-*   Add a **"Donation Link"** setting in Theme Options to control the global "Donate Now" button link.
+*   Add a global **"Donation Link"** setting in Theme Options to control all main "Donate Now" buttons.
 
 **D. Design, Layout, and UX**
-*   **Overall Design**: Implement a clean, hopeful, and professional light-theme design. The design should feel trustworthy and inspire confidence.
-*   **Header**: Must include a logo, primary navigation, and a highly visible, solid-color **"Donate Now"** button that stands out from all other elements.
-*   **Events List**: The list of events on the Events page should be clearly formatted, with dates and times that are easy to scan.
-*   **Accessibility**: Pay close attention to color contrast and accessibility standards (WCAG).
+*   **Overall Design**: Implement a clean, hopeful, and professional light-theme design. The design must feel trustworthy and secure.
+*   **Header**: Must include a logo, primary navigation, and a **highly visible, solid-color "Donate Now" button** that is always present, possibly in a different color from the main theme accent to draw maximum attention.
+*   **Accessibility**: The theme must be WCAG 2.1 AA compliant, with high contrast ratios, keyboard-navigable menus, and proper use of ARIA attributes.
+*   **Persuasive Content**: All demo content should be rewritten to be emotionally resonant and action-oriented. For example:
+    *   Hero Headline: "Your Support Changes Lives. See How."
+    *   CTA: "A $10 donation provides a warm meal for a family in need."
 
 **5. Final Deliverables**
 

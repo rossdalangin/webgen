@@ -1,12 +1,21 @@
-### Master Prompt for Law Firm WordPress Theme Generation
+### Master Prompt for Law Firm WordPress Theme Generation (Enhanced)
 
 **1. Persona & Core Objective**
 
-You are Jules, an expert WordPress developer specializing in creating professional, trustworthy, and high-performance themes for legal professionals. Your code is clean, secure, and follows all WordPress best practices.
+You are Jules, an expert WordPress developer specializing in creating professional, authoritative, and lead-generating themes for the legal industry. Your code is clean, secure, and follows all WordPress best practices.
 
-Your task is to create a complete, production-ready WordPress theme for a law firm. The theme must be fully functional, responsive, and highly customizable through the WordPress admin interface.
+Your task is to create a complete, production-ready WordPress theme for a premier law firm. The theme must establish trust, showcase expertise, and be optimized to convert visitors into consultation requests.
 
-**2. User Inputs**
+**2. Conversion Strategy**
+
+*   **Primary Goal**: Generate high-quality leads via "Free Consultation" forms.
+*   **User Journey**:
+    1.  Attract visitor with a professional, trustworthy homepage.
+    2.  Build credibility through "Practice Area" expertise and "Attorney" profiles.
+    3.  Provide social proof with "Case Results" and "Testimonials".
+    4.  Funnel the user towards a prominent "Free Consultation" Call-to-Action (CTA) available on every page.
+
+**3. User Inputs**
 
 *   **Theme Name**: `LegalPro`
 *   **Niche / Industry**: `Law Firm`
@@ -17,46 +26,48 @@ Your task is to create a complete, production-ready WordPress theme for a law fi
 *   **Primary Accent Color**: `#b9a054` (A sophisticated, trustworthy gold)
 *   **Base Theme Style**: `Light`
 
-**3. Core Theme Architecture Requirements**
+**4. Core Theme Architecture Requirements**
 
-*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and lightweight.
-*   **File Structure**: Create all necessary WordPress template files and organize custom functionality into an `/inc/` directory.
+*   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and professional.
 *   **Content Management Strategy**:
-    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) with all of its content and section order managed via the WordPress Customizer.
+    *   The **Homepage** will be a custom Page Template (`template-homepage.php`) with its content and section order managed via the WordPress Customizer.
     *   "Attorneys" and "Practice Areas" will be managed via **Custom Post Types (CPTs)**.
-    *   The pages that display these CPTs will be custom Page Templates that automatically query and display the CPT content.
     *   The footer will be managed via **Widget Areas**.
 
-**4. Detailed Feature Implementation**
+**5. Detailed Feature Implementation**
 
-**A. Custom Post Types (CPTs)**
-*   Create a file `inc/post-types.php`.
-*   Register a CPT for `Attorneys`. It must support a title (Attorney Name), content editor (Bio), and featured image (Headshot).
-*   Register a CPT for `Practice Areas`. It must support a title and content editor.
-*   These CPTs must appear as top-level items on the WordPress admin menu with appropriate icons (`dashicons-groups` for Attorneys, `dashicons-book` for Practice Areas).
+**A. Custom Post Types (CPTs) & Custom Fields**
+*   Create `inc/post-types.php`.
+*   Register a CPT for `Attorneys`. Supports: title (Name), editor (Bio), featured image (Headshot). **Add Custom Fields** for "Title" (e.g., "Senior Partner") and "Bar Admissions".
+*   Register a CPT for `Practice Areas`. Supports: title, editor.
 
 **B. Page Templates**
-*   Create a **Homepage Template** (`template-homepage.php`). Its content will be controlled entirely by the Customizer.
-*   Create an **Attorneys Page Template** (`template-attorneys.php`). This template will query and display all published `Attorney` posts in a professional grid, showing each attorney's headshot, name, and title.
-*   Create a **Practice Areas Page Template** (`template-practice-areas.php`). This template will display all `Practice Area` posts.
+*   Create a **Homepage Template** (`template-homepage.php`).
+*   Create an **Attorneys Page Template** (`template-attorneys.php`) displaying all `Attorney` posts in a professional grid.
+*   Create a **Practice Areas Page Template** (`template-practice-areas.php`).
+*   Create a custom **Single Attorney Template** (`single-attorney.php`) with a two-column layout: headshot on the left, and bio, title, and bar admissions on the right.
 
 **C. WordPress Customizer Integration (`inc/customizer.php`)**
-*   Create a **"Homepage Sections"** panel in the Customizer.
-*   For each homepage section, create a corresponding section in the Customizer with a **"Display Order"** number field.
-*   **Hero Section Controls**: Add controls for a background image, headline (e.g., "Experienced Legal Representation"), sub-headline, and a primary button (text and URL for "Free Consultation").
-*   **Practice Areas Preview Controls**: Add controls for the section headline. The section should dynamically display the 3 most recent `Practice Area` CPTs.
-*   **Case Results Section Controls**: Add a new section with controls for a headline (e.g., "Proven Results") and fields for 3-4 key statistics (e.g., "98% Success Rate", "$50M+ Recovered", "2000+ Cases Won").
-*   **Testimonials Section Controls**: Add controls for a headline and at least two client testimonials.
-*   **Attorneys Preview Controls**: Add controls for a section headline. The section should dynamically display the 3 most recent `Attorney` CPTs.
-*   **CTA Section Controls**: Add controls for a final Call-to-Action section, again emphasizing a "Free Consultation".
-*   Create a **"Theme Options"** panel with sections for Colors, Typography, and Footer Copyright.
+*   Create a **"Homepage Sections"** panel with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a background image, headline (e.g., "Aggressive Representation, Proven Results"), sub-headline, and a primary "Request a Free Consultation" button.
+*   **Practice Areas Preview Controls**: Add a headline. Dynamically display 3-6 `Practice Area` CPTs with icons.
+*   **Case Results Section Controls**: Add a headline (e.g., "A Record of Success") and fields for 4 key statistics (e.g., "98% Success Rate", "$50M+ Recovered").
+*   **Testimonials Section Controls**: Add a headline and at least two client testimonials focusing on results.
+*   **Attorneys Preview Controls**: Add a headline. Dynamically display 3 featured `Attorney` CPTs.
+*   **Main CTA Controls**: Add controls for a final, full-width "Request a Free Consultation" section.
+*   Create a **"Theme Options"** panel with sections for:
+    *   **Colors**: Add controls for Accent Color, Link Hover Color, and main Heading Color.
+    *   **Typography**: Add a "Heading Font" select dropdown.
+    *   **Header Settings**: Add a field for the firm's Phone Number.
+    *   **Footer**: Add a "Copyright Text" textarea.
 
 **D. Design, Layout, and UX**
-*   **Overall Design**: Implement a professional, clean, and trustworthy design. Use a serif font for headings and a sans-serif font for body text to convey authority and readability.
-*   **Header**: Must include a logo, primary navigation, a "Free Consultation" button, and an icon-based search toggle.
-*   **Footer**: Must contain four widget-ready columns. Any heading block added to a footer widget must be automatically styled.
-*   **Buttons**: The primary button style should be solid. The secondary button style (if any) and all button hover states should use a high-contrast "outline" style.
-*   **Single Attorney Page**: The single view for an Attorney CPT should be well-formatted, with the headshot prominently displayed next to their detailed bio and credentials.
+*   **Overall Design**: Implement a professional, authoritative, and clean design. Use a strong serif font for headings (e.g., 'Merriweather') and a clean sans-serif for body text.
+*   **Header**: Must include a logo, primary navigation, the firm's phone number, and a prominent "Free Consultation" CTA button.
+*   **Persuasive Content**: All demo content should be rewritten to be authoritative, client-focused, and action-oriented. For example:
+    *   Hero Headline: "Your Advocates in High-Stakes Litigation"
+    *   CTA Button: "Schedule Your Confidential Consultation"
+    *   Testimonial: "The team at LegalPro secured a result I didn't think was possible. Their expertise was evident from day one."
 
 **5. Final Deliverables**
 

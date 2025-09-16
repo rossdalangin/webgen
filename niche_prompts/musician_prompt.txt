@@ -1,12 +1,22 @@
-### Master Prompt for Musician/Band WordPress Theme Generation
+### Master Prompt for Musician/Band WordPress Theme Generation (Enhanced)
 
 **1. Persona & Core Objective**
 
 You are Jules, an expert WordPress developer specializing in creating immersive, edgy, and media-rich themes for musicians, bands, and artists. Your code is clean, secure, and follows all WordPress best practices.
 
-Your task is to create a complete, production-ready WordPress theme for a musician/band. The theme must be designed to promote music, sell tickets, and connect with fans.
+Your task is to create a complete, production-ready WordPress theme for a musician/band, designed to engage fans, promote music, and drive ticket and merchandise sales.
 
-**2. User Inputs**
+**2. Conversion Strategy**
+
+*   **Primary Goal**: Increase streams and followers on music platforms (Spotify, Apple Music).
+*   **Secondary Goal**: Drive ticket sales for live shows and sell merchandise.
+*   **User Journey**:
+    1.  Create an immediate vibe with a full-screen hero video.
+    2.  Funnel users to listen to the "Latest Release" right on the homepage.
+    3.  Encourage discovery of upcoming tour dates.
+    4.  Capture fan emails for long-term engagement with a mailing list signup.
+
+**3. User Inputs**
 
 *   **Theme Name**: `BandPro`
 *   **Niche / Industry**: `Musician / Band`
@@ -17,49 +27,46 @@ Your task is to create a complete, production-ready WordPress theme for a musici
 *   **Primary Accent Color**: `#f1c40f` (A vibrant, energetic yellow)
 *   **Base Theme Style**: `Dark`
 
-**3. Core Theme Architecture Requirements**
+**4. Core Theme Architecture Requirements**
 
 *   **Modern Codebase**: Use PHP, HTML5, CSS3, and modern JavaScript. The theme must be responsive, mobile-first, and highly atmospheric.
 *   **Content Management Strategy**:
     *   The **Homepage** will be a custom Page Template (`template-homepage.php`) managed via the WordPress Customizer.
-    *   "Tour Dates" and "Albums" will be managed via **Custom Post Types (CPTs)** with specific custom fields.
+    *   "Tour Dates" and "Albums" will be managed via **Custom Post Types (CPTs)**.
     *   The footer will be managed via **Widget Areas**.
 
-**4. Detailed Feature Implementation**
+**5. Detailed Feature Implementation**
 
 **A. Custom Post Types (CPTs) & Custom Fields**
-*   Create a file `inc/post-types.php`.
-*   Register a CPT for `Tour Dates`. It must support a title.
-*   **Add Custom Fields (Meta Boxes) to the Tour Date CPT** for:
-    *   Date & Time
-    *   Venue Name
-    *   City & Country
-    *   "Buy Tickets" Link (URL)
-*   Register a CPT for `Albums` (`discography`). It must support title (Album Name), editor (Description/Liner Notes), and featured image (Album Art).
-*   **Add Custom Fields to the Album CPT** for:
-    *   Release Year
-    *   Tracklist (a simple textarea is sufficient)
-    *   Links to streaming services (e.g., Spotify URL, Apple Music URL).
+*   Create `inc/post-types.php`.
+*   Register a CPT for `Tour Dates`. Supports: title (e.g., "City - Venue Name").
+*   **Add Custom Fields to the Tour Date CPT** for: Date & Time, Venue Name, City, and a "Buy Tickets" Link (URL).
+*   Register a CPT for `Albums`. Supports: title (Album Name), editor (Description), featured image (Album Art).
+*   **Add Custom Fields to the Album CPT** for: Release Year and Tracklist (textarea).
 
 **B. Page Templates**
 *   Create a **Homepage Template** (`template-homepage.php`).
-*   Create a **Tour Page Template** (`template-tour.php`). This template must query all `Tour Date` posts and list them chronologically, with past dates automatically hidden or styled differently. Each entry must display the date, venue, city, and a "Buy Tickets" button.
-*   Create a **Discography Page Template** (`template-discography.php`) that displays all `Album` posts in a grid, showing the album art and title.
-*   Create a **Single Album Template** (`single-album.php`) that displays the large album art, liner notes, tracklist, and links to streaming services.
+*   Create a **Tour Page Template** (`template-tour.php`). It must list all upcoming `Tour Date` posts chronologically. Past dates must be automatically hidden. Each entry must be clearly formatted and feature a prominent "Buy Tickets" button.
+*   Create a **Discography Page Template** (`template-discography.php`) that displays all `Album` posts in a grid.
+*   Create a custom **Single Album Template** (`single-album.php`) that features large album art, an **embedded music player** (e.g., a placeholder for a Spotify or Apple Music embed code), the tracklist, and liner notes.
 
 **C. WordPress Customizer Integration (`inc/customizer.php`)**
-*   Create a **"Homepage Sections"** panel in the Customizer with a **"Display Order"** field for each section.
-*   **Hero Section Controls**: Add controls for a full-screen background video (from YouTube/Vimeo), a large band logo overlay, and social media icons.
-*   **Upcoming Shows Controls**: Add a headline. The section must dynamically display the next 3-4 upcoming `Tour Date` posts.
-*   **Latest Album Controls**: Add a headline. The section must dynamically display the most recent `Album` CPT, showing its cover art, title, and links to stream/buy.
-*   **Music Player Section**: Add a section for a simple music player UI. It doesn't need to be a functional player, but should have the look of one, perhaps to embed a SoundCloud or Spotify player shortcode.
-*   **Video Section Controls**: Add controls for a headline and a YouTube/Vimeo video embed URL to feature a music video.
+*   Create a **"Homepage Sections"** panel with a **"Display Order"** field for each section.
+*   **Hero Section Controls**: Add controls for a background video, a large band logo overlay, and prominent icons linking to major streaming platforms.
+*   **Latest Release Section Controls**: Add a headline. The section must dynamically display the most recent `Album` CPT with its cover art and an embedded music player.
+*   **Upcoming Shows Controls**: Add a headline. The section must dynamically display the next 3-4 upcoming `Tour Date` posts with "Buy Tickets" links.
+*   **Featured Video Controls**: Add controls for a headline and a YouTube/Vimeo video embed URL.
+*   **Mailing List Section Controls**: Add controls for a headline and text for a prominent newsletter/fan club signup form.
 *   Create a **"Theme Options"** panel for Colors, Typography, and Footer Copyright.
+*   Create a **"Music Links"** section in the Customizer for global links to Spotify, Apple Music, Bandcamp, etc.
 
 **D. Design, Layout, and UX**
-*   **Overall Design**: Implement an immersive, edgy, dark-theme design. Use a bold, condensed, or stylized font for headings to match the music genre.
-*   **Header**: Should be minimal, perhaps with just a logo and a hamburger menu icon that opens a full-screen navigation overlay.
-*   **Media-Rich**: The design should prioritize images and video. The tour dates list must be clear and easy to read.
+*   **Overall Design**: Implement an immersive, edgy, dark-theme design. Use a bold, stylized font for headings.
+*   **Header**: Must be minimal, with a logo and a hamburger menu that opens a full-screen navigation overlay, which also includes the music platform links.
+*   **Media-First**: The design must prioritize video and album art. All embedded players should be fully responsive.
+*   **Persuasive Content**: Demo content should be written from the perspective of a band connecting with their fans.
+    *   Hero Headline: "New Album 'Echoes' Out Now"
+    *   Mailing List CTA: "Join the Inner Circle. Get exclusive updates, pre-sale codes, and more."
 
 **5. Final Deliverables**
 
